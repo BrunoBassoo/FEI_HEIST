@@ -35,7 +35,7 @@ Cada fase possui itens colecionáveis representando matérias reais da grade cur
 ## 🎓 Integrantes
 
 - Bruno Arthur Basso Silva - 22.123.067-5
-- Deise
+- Deise Adriana Silva Araujo 22.222.024-6
 - Leandro de Brito Alencar - 22.222.034-5
 - Mariah Gomes
 - Vinícius Saidi de Araújo Soares - 22.122.064-3
