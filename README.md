@@ -1,4 +1,5 @@
-# 🎓 FEI Heist - O Jogo
+<img width="500" height="500" alt="image" text-align: center src="https://github.com/user-attachments/assets/365d1b1c-c37e-437a-afeb-93e4eb06a942" />
+
 
 Bem-vindo ao **FEI Heist**, um jogo digital inspirado no clássico *Robbery Bob*, mas com um toque universitário! Aqui, você não é um ladrão comum — é um **aluno da FEI** tentando "pegar" todas as matérias de cada semestre... sem ser pego pelos professores e guardinhas!
 
