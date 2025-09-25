@@ -48,3 +48,9 @@ Trabalho de Desenvolvimento de Jogos apresentado ao Centro Universitário FEI, c
 ## 🧑‍🎓 Publico alvo
 
 Como o jogo se passa na universidade, o publico alvo é os alunos da FEI, na qual vão poder ver a FEI de um ponto de vista diferente, fazendo essa imersão no campus.
+
+## 📚 Modelagem das fases
+
+### Fase 1:
+
+
