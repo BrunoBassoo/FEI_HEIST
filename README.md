@@ -51,6 +51,41 @@ Como o jogo se passa na universidade, o publico alvo é os alunos da FEI, na qua
 
 ## 📚 Modelagem das fases
 
-### Fase 1:
+#### Regras:
+- O jogador precisa pegar os colecionáveis para passar de fase
+- Se o jogador for pego, ele volta para o início da fase em questão (sem carregar o que já tinha pego)
+- O crachá tem uma duração de 3 segundos e vira um falso segurança durante esse período
+- Cubos verdes são esconderijos
+- Bota da rapidez aumenta sua velocidade em 5 km/h
 
+### 1° fase:
 
+<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%201.png" />
+
+### 2° fase:
+
+<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%202.png" />
+
+### 3° fase:
+
+<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%203.png" />
+
+### 4° fase:
+
+<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%204.png" />
+
+### 5° fase:
+
+<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%205.png" />
+
+### 6° fase:
+
+<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%206.png" />
+
+### 7° fase:
+
+<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%207.png" />
+
+### 8° fase:
+
+<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%208.png" />
