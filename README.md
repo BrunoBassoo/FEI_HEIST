@@ -88,4 +88,4 @@ Como o jogo se passa na universidade, o publico alvo é os alunos da FEI, na qua
 
 ### 8° fase:
 
-<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%208.png" />
+<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%208 (TCC).png" />
