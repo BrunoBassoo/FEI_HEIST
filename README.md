@@ -89,3 +89,12 @@ Como o jogo se passa na universidade, o publico alvo é os alunos da FEI, na qua
 ### 8° fase:
 
 <img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%208 (TCC).png" />
+
+## Métodos de Orientação
+### Orientação Direta
+1. Um guia de instruções até mesmo para contextualizar o jogador
+2. Pop-ups no mural das salas dando dicas para o jogador sobre onde possa estar os colecionavéis
+
+### Orientação Indireta
+1. O próprio mapa como guia, pois nossos mapas são pequenos e já direciona o jogador um certo caminho
+2. E os personagens não jogáveis como os seguranças que vão estar protegendo um colecionável iram gerar uma certa curiosidade para o jogador ir explorar o lugar que estão protegendo ou rondando.
