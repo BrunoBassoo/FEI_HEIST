@@ -21,7 +21,7 @@ Bem-vindo ao **FEI Heist**, um jogo digital inspirado no clássico *Robbery Bob*
 ## 🎮 Mecânicas Principais
 
 - **Modo Stealth**: Ande silenciosamente para não chamar atenção.
-- **Itens Especiais**: Utilize ferramentas como crachá falso, cola de prova e até o famoso "banquinho da cantina" para distrair ou despistar os inimigos.
+- **Itens Especiais**: Utilize ferramentas como crachá falso, bota de rapidez e caixa de som pra confundir o guardinha. 
 - **Inimigos com IA**: Guardinhas e professores patrulham áreas e reagem a sons e movimentos suspeitos.
 - **Mapas Inspirados na FEI**: Explore lugares como a sala de estudos, os laboratórios, a lanchonete, prédio D e mais.
 
