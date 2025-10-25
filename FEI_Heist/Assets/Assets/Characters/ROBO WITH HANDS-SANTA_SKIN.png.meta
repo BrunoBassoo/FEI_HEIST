@@ -1,0 +1,1239 @@
+fileFormatVersion: 2
+guid: 284a2b7054f6b4617a62a694906880ac
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2884464371495128148
+    second: ROBO WITH HANDS-SANTA_SKIN_0
+  - first:
+      213: 5819543162246433575
+    second: ROBO WITH HANDS-SANTA_SKIN_1
+  - first:
+      213: 2380080783535131738
+    second: ROBO WITH HANDS-SANTA_SKIN_2
+  - first:
+      213: 7649843466899809323
+    second: ROBO WITH HANDS-SANTA_SKIN_3
+  - first:
+      213: -4692632942833975173
+    second: ROBO WITH HANDS-SANTA_SKIN_4
+  - first:
+      213: -8448431000896575336
+    second: ROBO WITH HANDS-SANTA_SKIN_5
+  - first:
+      213: -5036491576375462324
+    second: ROBO WITH HANDS-SANTA_SKIN_6
+  - first:
+      213: 3029982537666587941
+    second: ROBO WITH HANDS-SANTA_SKIN_7
+  - first:
+      213: 7634442136916164263
+    second: ROBO WITH HANDS-SANTA_SKIN_8
+  - first:
+      213: 2108080425124259779
+    second: ROBO WITH HANDS-SANTA_SKIN_9
+  - first:
+      213: -3503550595869642454
+    second: ROBO WITH HANDS-SANTA_SKIN_10
+  - first:
+      213: 4045845583992834382
+    second: ROBO WITH HANDS-SANTA_SKIN_11
+  - first:
+      213: 2467270789485497569
+    second: ROBO WITH HANDS-SANTA_SKIN_12
+  - first:
+      213: -1546791375280710394
+    second: ROBO WITH HANDS-SANTA_SKIN_13
+  - first:
+      213: 5213359355728603674
+    second: ROBO WITH HANDS-SANTA_SKIN_14
+  - first:
+      213: -1774430879289146146
+    second: ROBO WITH HANDS-SANTA_SKIN_15
+  - first:
+      213: -5967690671089936631
+    second: ROBO WITH HANDS-SANTA_SKIN_16
+  - first:
+      213: -2355655924695502459
+    second: ROBO WITH HANDS-SANTA_SKIN_17
+  - first:
+      213: 6528893828970320000
+    second: ROBO WITH HANDS-SANTA_SKIN_18
+  - first:
+      213: 6124996857964539259
+    second: ROBO WITH HANDS-SANTA_SKIN_19
+  - first:
+      213: -893540698814082467
+    second: ROBO WITH HANDS-SANTA_SKIN_20
+  - first:
+      213: -6128224562464150400
+    second: ROBO WITH HANDS-SANTA_SKIN_21
+  - first:
+      213: 4637117140572756196
+    second: ROBO WITH HANDS-SANTA_SKIN_22
+  - first:
+      213: -4263221628874350785
+    second: ROBO WITH HANDS-SANTA_SKIN_23
+  - first:
+      213: -1213075965533969243
+    second: ROBO WITH HANDS-SANTA_SKIN_24
+  - first:
+      213: -6730332153827067616
+    second: ROBO WITH HANDS-SANTA_SKIN_25
+  - first:
+      213: -1079155851745118827
+    second: ROBO WITH HANDS-SANTA_SKIN_26
+  - first:
+      213: 2123847579776454369
+    second: ROBO WITH HANDS-SANTA_SKIN_27
+  - first:
+      213: 555763748779178019
+    second: ROBO WITH HANDS-SANTA_SKIN_28
+  - first:
+      213: -7102859653523085469
+    second: ROBO WITH HANDS-SANTA_SKIN_29
+  - first:
+      213: -6559178495130255318
+    second: ROBO WITH HANDS-SANTA_SKIN_30
+  - first:
+      213: -6280409463340660625
+    second: ROBO WITH HANDS-SANTA_SKIN_31
+  - first:
+      213: -5827708919637226160
+    second: ROBO WITH HANDS-SANTA_SKIN_32
+  - first:
+      213: -3358333260824205766
+    second: ROBO WITH HANDS-SANTA_SKIN_33
+  - first:
+      213: -3025944567735057540
+    second: ROBO WITH HANDS-SANTA_SKIN_34
+  - first:
+      213: -6269873056137621457
+    second: ROBO WITH HANDS-SANTA_SKIN_35
+  - first:
+      213: 3671579695203582071
+    second: ROBO WITH HANDS-SANTA_SKIN_36
+  - first:
+      213: 6779364856327027552
+    second: ROBO WITH HANDS-SANTA_SKIN_37
+  - first:
+      213: -4764242613063359583
+    second: ROBO WITH HANDS-SANTA_SKIN_38
+  - first:
+      213: -7807655673675312531
+    second: ROBO WITH HANDS-SANTA_SKIN_39
+  - first:
+      213: -2726789240089461284
+    second: ROBO WITH HANDS-SANTA_SKIN_40
+  - first:
+      213: 492154077715080655
+    second: ROBO WITH HANDS-SANTA_SKIN_41
+  - first:
+      213: -8372762227432528039
+    second: ROBO WITH HANDS-SANTA_SKIN_42
+  - first:
+      213: -912886741045901980
+    second: ROBO WITH HANDS-SANTA_SKIN_43
+  - first:
+      213: 186981469445819154
+    second: ROBO WITH HANDS-SANTA_SKIN_44
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 319
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca333c9cfe258f7d0800000000000000
+      internalID: -2884464371495128148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 319
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72b80cc3cab23c050800000000000000
+      internalID: 5819543162246433575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 319
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c4857ccdeb70120800000000000000
+      internalID: 2380080783535131738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_3
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 319
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b24e7ef3a14b92a60800000000000000
+      internalID: 7649843466899809323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_4
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 287
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b70c51d733b60eeb0800000000000000
+      internalID: -4692632942833975173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_5
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 288
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 898692234c421ca80800000000000000
+      internalID: -8448431000896575336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_6
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 287
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c46b4e38899ca1ab0800000000000000
+      internalID: -5036491576375462324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_7
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 287
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52de0418019ac0a20800000000000000
+      internalID: 3029982537666587941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_8
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 256
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ae792dacacf2f960800000000000000
+      internalID: 7634442136916164263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_9
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 258
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c76c714af7614d10800000000000000
+      internalID: 2108080425124259779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_10
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 255
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21f490bb43e06fc0800000000000000
+      internalID: -3503550595869642454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_11
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 255
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e49c9f17f1bb52830800000000000000
+      internalID: 4045845583992834382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_12
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 255
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ec0bfbf5b18d3220800000000000000
+      internalID: 2467270789485497569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_13
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 255
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60d51ce7071b88ae0800000000000000
+      internalID: -1546791375280710394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_14
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 255
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1aa9a466b2995840800000000000000
+      internalID: 5213359355728603674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_15
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 255
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed48c714484ff57e0800000000000000
+      internalID: -1774430879289146146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_16
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 223
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 907954ce3f08e2da0800000000000000
+      internalID: -5967690671089936631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_17
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 223
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 581fa73da670f4fd0800000000000000
+      internalID: -2355655924695502459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_18
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 223
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 080140c885a4b9a50800000000000000
+      internalID: 6528893828970320000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_19
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 191
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d2c51d03c500550800000000000000
+      internalID: 6124996857964539259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_20
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 191
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5215d6f7718993f0800000000000000
+      internalID: -893540698814082467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_21
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 159
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08c208aaa3c24faa0800000000000000
+      internalID: -6128224562464150400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_22
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 159
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e8d6b988795a5040800000000000000
+      internalID: 4637117140572756196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_23
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 159
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3f9e2c148ef5d4c0800000000000000
+      internalID: -4263221628874350785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_24
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 129
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a4a8c426d94a2fe0800000000000000
+      internalID: -1213075965533969243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_25
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 130
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0297fbe909e0992a0800000000000000
+      internalID: -6730332153827067616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_26
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 96
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595b27f68711601f0800000000000000
+      internalID: -1079155851745118827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_27
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 98
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ee06a50f1c697d10800000000000000
+      internalID: 2123847579776454369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_28
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 98
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 328b5095f2876b700800000000000000
+      internalID: 555763748779178019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_29
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 99
+        width: 57
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3676d4617c29d6d90800000000000000
+      internalID: -7102859653523085469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_30
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 113
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a20416329ed19f4a0800000000000000
+      internalID: -6559178495130255318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_31
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 111
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f68049d3ed087d8a0800000000000000
+      internalID: -6280409463340660625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_32
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 100
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05dc5a63d91df1fa0800000000000000
+      internalID: -5827708919637226160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_33
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 63
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a36a13741bdc461d0800000000000000
+      internalID: -3358333260824205766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_34
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 64
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c730122a27fa106d0800000000000000
+      internalID: -3025944567735057540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_35
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 63
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f20df16bcafecf8a0800000000000000
+      internalID: -6269873056137621457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_36
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 63
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7708529a74214f230800000000000000
+      internalID: 3671579695203582071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_37
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 31
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06bb3201b64251e50800000000000000
+      internalID: 6779364856327027552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_38
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 32
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a36490e59202edb0800000000000000
+      internalID: -4764242613063359583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_39
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 31
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6215021882a5a390800000000000000
+      internalID: -7807655673675312531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_40
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 31
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd3c1f12af782ad0800000000000000
+      internalID: -2726789240089461284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_41
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 26
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc5a7f0b68b74d600800000000000000
+      internalID: 492154077715080655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_42
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 957631d6d19fdcb80800000000000000
+      internalID: -8372762227432528039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_43
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 0
+        width: 26
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4658bcf7856c453f0800000000000000
+      internalID: -912886741045901980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROBO WITH HANDS-SANTA_SKIN_44
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 0
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b06e1e7aa489200800000000000000
+      internalID: 186981469445819154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ROBO WITH HANDS-SANTA_SKIN_0: -2884464371495128148
+      ROBO WITH HANDS-SANTA_SKIN_1: 5819543162246433575
+      ROBO WITH HANDS-SANTA_SKIN_10: -3503550595869642454
+      ROBO WITH HANDS-SANTA_SKIN_11: 4045845583992834382
+      ROBO WITH HANDS-SANTA_SKIN_12: 2467270789485497569
+      ROBO WITH HANDS-SANTA_SKIN_13: -1546791375280710394
+      ROBO WITH HANDS-SANTA_SKIN_14: 5213359355728603674
+      ROBO WITH HANDS-SANTA_SKIN_15: -1774430879289146146
+      ROBO WITH HANDS-SANTA_SKIN_16: -5967690671089936631
+      ROBO WITH HANDS-SANTA_SKIN_17: -2355655924695502459
+      ROBO WITH HANDS-SANTA_SKIN_18: 6528893828970320000
+      ROBO WITH HANDS-SANTA_SKIN_19: 6124996857964539259
+      ROBO WITH HANDS-SANTA_SKIN_2: 2380080783535131738
+      ROBO WITH HANDS-SANTA_SKIN_20: -893540698814082467
+      ROBO WITH HANDS-SANTA_SKIN_21: -6128224562464150400
+      ROBO WITH HANDS-SANTA_SKIN_22: 4637117140572756196
+      ROBO WITH HANDS-SANTA_SKIN_23: -4263221628874350785
+      ROBO WITH HANDS-SANTA_SKIN_24: -1213075965533969243
+      ROBO WITH HANDS-SANTA_SKIN_25: -6730332153827067616
+      ROBO WITH HANDS-SANTA_SKIN_26: -1079155851745118827
+      ROBO WITH HANDS-SANTA_SKIN_27: 2123847579776454369
+      ROBO WITH HANDS-SANTA_SKIN_28: 555763748779178019
+      ROBO WITH HANDS-SANTA_SKIN_29: -7102859653523085469
+      ROBO WITH HANDS-SANTA_SKIN_3: 7649843466899809323
+      ROBO WITH HANDS-SANTA_SKIN_30: -6559178495130255318
+      ROBO WITH HANDS-SANTA_SKIN_31: -6280409463340660625
+      ROBO WITH HANDS-SANTA_SKIN_32: -5827708919637226160
+      ROBO WITH HANDS-SANTA_SKIN_33: -3358333260824205766
+      ROBO WITH HANDS-SANTA_SKIN_34: -3025944567735057540
+      ROBO WITH HANDS-SANTA_SKIN_35: -6269873056137621457
+      ROBO WITH HANDS-SANTA_SKIN_36: 3671579695203582071
+      ROBO WITH HANDS-SANTA_SKIN_37: 6779364856327027552
+      ROBO WITH HANDS-SANTA_SKIN_38: -4764242613063359583
+      ROBO WITH HANDS-SANTA_SKIN_39: -7807655673675312531
+      ROBO WITH HANDS-SANTA_SKIN_4: -4692632942833975173
+      ROBO WITH HANDS-SANTA_SKIN_40: -2726789240089461284
+      ROBO WITH HANDS-SANTA_SKIN_41: 492154077715080655
+      ROBO WITH HANDS-SANTA_SKIN_42: -8372762227432528039
+      ROBO WITH HANDS-SANTA_SKIN_43: -912886741045901980
+      ROBO WITH HANDS-SANTA_SKIN_44: 186981469445819154
+      ROBO WITH HANDS-SANTA_SKIN_5: -8448431000896575336
+      ROBO WITH HANDS-SANTA_SKIN_6: -5036491576375462324
+      ROBO WITH HANDS-SANTA_SKIN_7: 3029982537666587941
+      ROBO WITH HANDS-SANTA_SKIN_8: 7634442136916164263
+      ROBO WITH HANDS-SANTA_SKIN_9: 2108080425124259779
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
