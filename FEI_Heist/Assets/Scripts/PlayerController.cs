@@ -5,15 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float speed;
+    public float speed = 5f;
     private Vector2 movement;
-      // Start is called before the first frame update
+
+    public int keysCollected = 0;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -22,5 +23,31 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("key"))
+        {
+            keysCollected++;
+            Destroy(other.gameObject);
+            Debug.Log("Chaves: " + keysCollected);
+        }
+    }
+
+    // Método para usar uma chave
+    public bool UseKey()
+    {
+        if (keysCollected > 0)
+        {
+            keysCollected--;
+            Debug.Log("Usou uma chave. Restam: " + keysCollected);
+            return true;
+        }
+        else
+        {
+            Debug.Log("Sem chaves!");
+            return false;
+        }
     }
 }
