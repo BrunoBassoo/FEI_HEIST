@@ -6,6 +6,7 @@ TagManager:
   tags:
   - key
   - porta
+  - enemy
   layers:
   - Default
   - TransparentFX
