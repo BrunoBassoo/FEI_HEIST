@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
 
     public int keysCollected = 0;
+    public int materiasCollected = 0; // contador de matérias
 
     [Header("Ataque")]
     public float attackRange = 1f;      // distância do ataque
@@ -48,19 +49,29 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Attack()
-{
-    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange);
-
-    foreach (Collider2D enemy in hitEnemies)
     {
-        if (enemy.CompareTag("enemy"))
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange);
+        foreach (var col in hits)
         {
-            Vector2 hitDirection = (enemy.transform.position - transform.position).normalized;
-            enemy.GetComponent<EnemyAI>().TakeDamage(hitDirection);
-            Debug.Log("Acertou o inimigo!");
+            if (col.CompareTag("enemy"))
+            {
+                // direção do golpe para empurrar o inimigo pra trás
+                Vector2 hitDir = (col.transform.position - transform.position).normalized;
+
+                // tenta achar o script correto no inimigo
+                if (col.TryGetComponent<EnemyChasePatrol>(out var enemy))
+                {
+                    enemy.TakeDamage(hitDir);
+                }
+                else
+                {
+                    // se o collider é filho, tenta no pai
+                    var enemyOnParent = col.GetComponentInParent<EnemyChasePatrol>();
+                    if (enemyOnParent) enemyOnParent.TakeDamage(hitDir);
+                }
+            }
         }
     }
-}
 
     private void OnDrawGizmosSelected()
     {
@@ -76,6 +87,27 @@ public class PlayerController : MonoBehaviour
             keysCollected++;
             Destroy(other.gameObject);
             Debug.Log("Chaves: " + keysCollected);
+        }
+
+        if (other.CompareTag("trofeu"))
+        {
+            Destroy(other.gameObject);
+            Debug.Log("Pegou o troféu!");
+        }
+
+        // --- NOVO: coleta de matéria ---
+        if (other.CompareTag("materia"))
+        {
+            if (materiasCollected < 2)
+            {
+                materiasCollected++;
+                Destroy(other.gameObject);
+                Debug.Log("Matérias: " + materiasCollected + "/2");
+            }
+            else
+            {
+                Debug.Log("Já está com o limite máximo de matérias (2/2)");
+            }
         }
     }
 

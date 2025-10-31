@@ -1,107 +1,126 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyChasePatrol : MonoBehaviour
 {
-    [Header("Movimento")]
+    [Header("Movimentação")]
     public float speed = 2f;
-    public Transform groundCheck;
-    public float groundCheckRadius = 0.2f;
-    public LayerMask groundLayer;
+    public float chaseSpeedMultiplier = 3f; // 3x mais rápido ao perseguir
     private bool movingRight = true;
     private Rigidbody2D rb;
 
-    [Header("Visão do jogador")]
+    [Header("Detecção do Jogador")]
     public float visionRange = 5f;
     private Transform player;
+    private bool isChasing = false;
 
-    [Header("Vida e dano")]
+    [Header("Vida, Dano e Stun")]
     public int maxHealth = 2;
-    private int currentHealth;
-    public float knockbackForce = 5f;  // força que o inimigo é empurrado ao levar dano
+    public float knockbackForce = 5f;
     public float knockbackDuration = 0.2f;
+    public float stunDuration = 5f;
 
+    private int currentHealth;
     private bool isTakingDamage = false;
+    private bool isStunned = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        var pObj = GameObject.FindGameObjectWithTag("Player");
+        player = pObj ? pObj.transform : null;
         currentHealth = maxHealth;
     }
 
     void Update()
     {
-        if (isTakingDamage) return; // enquanto estiver sofrendo dano, não anda
+        if (player == null) return;
+        if (isTakingDamage || isStunned) return;
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float dist = Vector2.Distance(transform.position, player.position);
+        isChasing = dist <= visionRange;
+    }
 
-        if (distanceToPlayer <= visionRange)
+    void FixedUpdate()
+    {
+        if (isTakingDamage || isStunned) { rb.velocity = Vector2.zero; return; }
+
+        if (isChasing && player != null)
         {
-            // Persegue o jogador (movimento em X e Y)
-            Vector2 direction = (player.position - transform.position).normalized;
-            rb.velocity = direction * (speed * 3f); // 3x mais rápido quando persegue
+            // Persegue em X e Y, 3x mais rápido
+            Vector2 dir = (player.position - transform.position).normalized;
+            rb.velocity = dir * (speed * chaseSpeedMultiplier);
+
+            // vira visualmente
+            if ((dir.x > 0 && !movingRight) || (dir.x < 0 && movingRight)) Flip();
         }
         else
         {
-            // Patrulha: anda pra um lado, e ao colidir, inverte
-            float moveDirection = movingRight ? 1 : -1;
-            rb.velocity = new Vector2(moveDirection * speed, rb.velocity.y);
+            // Patrulha: esquerda/direita até bater
+            float moveDir = movingRight ? 1 : -1;
+            rb.velocity = new Vector2(moveDir * speed, rb.velocity.y);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        // Se colidir com parede ou Tilemap, muda de direção
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
-            movingRight = !movingRight;
+        if (collision.contacts.Length == 0) return;
+
+        // Se bateu lateralmente (parede/tilemap), inverte
+        Vector2 n = collision.contacts[0].normal;
+        if (Mathf.Abs(n.x) > 0.5f)
             Flip();
-        }
     }
 
     void Flip()
     {
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        movingRight = !movingRight;
+        Vector3 s = transform.localScale;
+        s.x *= -1;
+        transform.localScale = s;
     }
 
-    // Método para o inimigo tomar dano
+    // ===== DANO / STUN =====
     public void TakeDamage(Vector2 hitDirection)
     {
-        if (isTakingDamage) return;
+        if (isTakingDamage || isStunned) return;
 
         currentHealth--;
-        Debug.Log("Inimigo levou dano! Vidas restantes: " + currentHealth);
 
         if (currentHealth <= 0)
         {
-            Die();
-            return;
+            // entra em stun (parado 5s) e depois “recupera”
+            StartCoroutine(StunRoutine());
         }
-
-        // Recuo (knockback)
-        StartCoroutine(Knockback(hitDirection));
+        else
+        {
+            // aplica knockback curto
+            StartCoroutine(Knockback(hitDirection));
+        }
     }
 
     private IEnumerator Knockback(Vector2 hitDirection)
     {
         isTakingDamage = true;
         rb.velocity = Vector2.zero;
-        rb.AddForce(hitDirection * knockbackForce, ForceMode2D.Impulse);
+        rb.AddForce(hitDirection.normalized * knockbackForce, ForceMode2D.Impulse);
         yield return new WaitForSeconds(knockbackDuration);
         isTakingDamage = false;
     }
 
-    void Die()
+    private IEnumerator StunRoutine()
     {
-        Debug.Log("Inimigo morreu!");
-        Destroy(gameObject);
+        isStunned = true;
+        rb.velocity = Vector2.zero;
+        // opcional: piscar, trocar cor etc.
+        yield return new WaitForSeconds(stunDuration);
+
+        // “recupera” após o stun
+        currentHealth = maxHealth;
+        isStunned = false;
     }
 
-    private void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, visionRange);

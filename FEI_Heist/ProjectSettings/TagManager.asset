@@ -7,6 +7,8 @@ TagManager:
   - key
   - porta
   - enemy
+  - trofeu
+  - materia
   layers:
   - Default
   - TransparentFX
