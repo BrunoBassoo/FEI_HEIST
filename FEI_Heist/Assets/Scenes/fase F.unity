@@ -673,8 +673,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.8
-  chaseSpeedMultiplier: 4
-  visionRange: 5
+  chaseSpeedMultiplier: 3
+  visionRange: 2.4
   maxHealth: 2
   knockbackForce: 5
   knockbackDuration: 0.2
@@ -2258,9 +2258,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4daa68bbb8020441b73d27028cc67af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  chaseSpeedMultiplier: 4
-  visionRange: 5
+  speed: 1.5
+  chaseSpeedMultiplier: 2
+  visionRange: 2
   maxHealth: 2
   knockbackForce: 5
   knockbackDuration: 0.2
@@ -13606,8 +13606,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  chaseSpeedMultiplier: 4
-  visionRange: 5
+  chaseSpeedMultiplier: 3
+  visionRange: 2.4
   maxHealth: 2
   knockbackForce: 5
   knockbackDuration: 0.2
@@ -13697,7 +13697,7 @@ Transform:
   m_GameObject: {fileID: 1096145379}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.92, y: 13.54, z: 0}
+  m_LocalPosition: {x: -2.92, y: 13.49, z: 0}
   m_LocalScale: {x: 1.4232153, y: 1.3154386, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
