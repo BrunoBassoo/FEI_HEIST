@@ -10,12 +10,12 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private bool patrulhaAutomatica = true;
     
     [Header("Configurações de Perseguição")]
-    [SerializeField] private float visionRange = 5f;
+    [SerializeField] private float visionRange = 5f; // Range de visão/captura do player
     [SerializeField] private float multiplicadorVelocidade = 3f;
     
     [Header("Configurações de Combate")]
-    [SerializeField] private int vidasMaximas = 2;
-    [SerializeField] private float tempoInconsciente = 10f;
+    [SerializeField] private int vidasMaximas = 2; // Inimigo tem 2 vidas
+    [SerializeField] private float tempoParalisado = 10f; // Tempo paralisado quando zera vidas
     
     [Header("Música de Perseguição")]
     [SerializeField] private AudioClip musicaPerseguicao;
@@ -180,16 +180,28 @@ public class EnemyAI : MonoBehaviour
         {
             if (obj.CompareTag("Player"))
             {
-                // Player detectado!
-                bool estaVaPerseguir = !estaPerseguindo; // Verifica se acabou de começar a perseguir
-                estaPerseguindo = true;
-                playerTransform = obj.transform;
-                playerEncontrado = true;
+                // Verifica se o player está visível (não escondido)
+                SpriteRenderer playerSprite = obj.GetComponent<SpriteRenderer>();
+                bool playerVisivel = playerSprite != null && playerSprite.enabled;
                 
-                // Se acabou de começar a perseguir, toca a música
-                if (estaVaPerseguir)
+                // Só persegue se o player estiver visível
+                if (playerVisivel)
                 {
-                    TocarMusicaPerseguicao();
+                    // Player detectado e visível!
+                    bool estaVaPerseguir = !estaPerseguindo;
+                    estaPerseguindo = true;
+                    playerTransform = obj.transform;
+                    playerEncontrado = true;
+                    
+                    // Se acabou de começar a perseguir, toca a música
+                    if (estaVaPerseguir)
+                    {
+                        TocarMusicaPerseguicao();
+                    }
+                }
+                else
+                {
+                    Debug.Log("👁️ Player escondido! Inimigo não detecta.");
                 }
                 
                 break;
@@ -376,13 +388,15 @@ public class EnemyAI : MonoBehaviour
         if (estaInconsciente) return;
         
         vidasAtuais -= dano;
-        Debug.Log("Inimigo recebeu dano! Vidas restantes: " + vidasAtuais);
+        
+        Debug.Log($"💥 Inimigo recebeu {dano} de dano! Vidas: {vidasAtuais}/{vidasMaximas}");
         
         // Se estava tocando o player, para de tocar (foi atingido)
         if (estaTocandoPlayer)
         {
             estaTocandoPlayer = false;
-            Debug.Log("Inimigo foi atingido! Mensagem escondida.");
+            tempoSegurandoPlayer = 0f; // Reseta o timer de captura
+            Debug.Log("Inimigo foi atingido! Player escapou!");
         }
         
         // Animação de hit (se tiver)
@@ -392,16 +406,17 @@ public class EnemyAI : MonoBehaviour
         //     animator.SetTrigger("Hit");
         // }
         
-        // Verifica se morreu
+        // Verifica se zerou as vidas
         if (vidasAtuais <= 0)
         {
-            FicarInconsciente();
+            FicarParalisado();
         }
     }
     
-    void FicarInconsciente()
+    void FicarParalisado()
     {
         estaInconsciente = true;
+        vidasAtuais = 0; // Garante que está zerado
         
         // PARA TODOS OS MOVIMENTOS
         rb.velocity = Vector2.zero;
@@ -418,7 +433,7 @@ public class EnemyAI : MonoBehaviour
         PararMusicaPerseguicao();
         PararMusicaCaptura();
         
-        Debug.Log("Inimigo ficou inconsciente por " + tempoInconsciente + " segundos!");
+        Debug.Log($"💀 Inimigo foi derrotado! Ficará paralisado por {tempoParalisado} segundos!");
         
         // Animação de inconsciente (se tiver)
         // NOTA: Descomente as linhas abaixo se você tiver esses parâmetros no Animator:
@@ -429,32 +444,43 @@ public class EnemyAI : MonoBehaviour
         //     animator.SetBool("isPerseguindo", false);
         // }
         
-        // Muda a cor para indicar que está inconsciente (opcional)
+        // Muda a cor para indicar que está paralisado (cinza transparente)
         if (spriteRenderer != null)
         {
-            spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f, 0.7f); // Cinza transparente
+            spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f, 0.7f);
         }
         
-        // Inicia a corrotina para acordar
-        StartCoroutine(AcordarDepoisDeTempo());
+        // Inicia a corrotina para recuperar
+        StartCoroutine(RecuperarDepoisDeTempo());
     }
     
-    IEnumerator AcordarDepoisDeTempo()
+    IEnumerator RecuperarDepoisDeTempo()
     {
-        // Durante todo o tempo inconsciente, mantém parado
+        // Durante todo o tempo paralisado, mantém parado
         float tempoDecorrido = 0f;
-        while (tempoDecorrido < tempoInconsciente)
+        
+        Debug.Log($"⏱️ Inimigo paralisado... ({tempoParalisado}s)");
+        
+        while (tempoDecorrido < tempoParalisado)
         {
             rb.velocity = Vector2.zero; // Garante que continua parado
             tempoDecorrido += Time.deltaTime;
+            
+            // Mostra contagem regressiva a cada segundo
+            if (Mathf.FloorToInt(tempoDecorrido) != Mathf.FloorToInt(tempoDecorrido - Time.deltaTime))
+            {
+                float tempoRestante = tempoParalisado - tempoDecorrido;
+                Debug.Log($"⏱️ Inimigo se recupera em: {tempoRestante:F0}s");
+            }
+            
             yield return null;
         }
         
-        // Acorda o inimigo
+        // Recupera o inimigo
         estaInconsciente = false;
-        vidasAtuais = vidasMaximas; // Restaura as vidas
+        vidasAtuais = vidasMaximas; // Restaura as 2 vidas
         
-        Debug.Log("Inimigo acordou! Vidas restauradas: " + vidasAtuais);
+        Debug.Log($"✅ Inimigo recuperado! Vidas restauradas: {vidasAtuais}/{vidasMaximas}");
         
         // Volta às animações normais
         // NOTA: Descomente se você tiver o parâmetro "isInconsciente" no Animator:
