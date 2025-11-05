@@ -8,5 +8,26 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/fase F.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/fase E.unity
+    guid: 1ff71b39c5d5d460bba6d1a96c85a82b
+  - enabled: 1
+    path: Assets/Scenes/fase I.unity
+    guid: 34bbfb205dd6e4cebac7377bcb80b40e
+  - enabled: 1
+    path: Assets/Scenes/fase H.unity
+    guid: ed4d189eb884b499894be43fcbb05008
+  - enabled: 1
+    path: Assets/Scenes/fase E_2.unity
+    guid: 1db432828f48b431bacdd8bce5d271c0
+  - enabled: 1
+    path: Assets/Scenes/fase I_2.unity
+    guid: 6b6d1ca772e68410bb76241fabd999ad
+  - enabled: 1
+    path: Assets/Scenes/fase S.unity
+    guid: f22794380a88c43afbd9d335f8cdf00e
+  - enabled: 1
+    path: Assets/Scenes/fase T.unity
+    guid: 8391f08f8cb874fdb80494e9c5326d83
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

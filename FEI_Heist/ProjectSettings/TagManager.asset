@@ -9,6 +9,8 @@ TagManager:
   - enemy
   - trofeu
   - materia
+  - Paredes
+  - bota
   layers:
   - Default
   - TransparentFX
