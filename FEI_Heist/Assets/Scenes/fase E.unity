@@ -11473,7 +11473,7 @@ GameObject:
   - component: {fileID: 934624073}
   m_Layer: 0
   m_Name: porta 2
-  m_TagString: Untagged
+  m_TagString: porta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12205,8 +12205,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.10506956, y: -0.065133415}
-  m_Size: {x: 1.6544056, y: 3.7424233}
+  m_Offset: {x: 0.10506956, y: -0.34223714}
+  m_Size: {x: 1.6544056, y: 2.0013752}
   m_Direction: 0
 --- !u!95 &1086131934
 Animator:
@@ -13369,8 +13369,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.110300586, y: 0}
-  m_Size: {x: 0.72113574, y: 2.5700002}
+  m_Offset: {x: -0.021984302, y: -0.037278052}
+  m_Size: {x: 1.3099117, y: 1.5382795}
   m_Direction: 0
 --- !u!95 &1527572959
 Animator:
