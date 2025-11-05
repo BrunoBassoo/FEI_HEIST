@@ -383,8 +383,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messagePanel: {fileID: 780098863}
   messageText: {fileID: 1455901452}
+  barraProgresso: {fileID: 0}
   mensagem: Vou te pegar, moleque!!
   corTexto: {r: 1, g: 0, b: 0, a: 1}
+  mostrarTimer: 1
 --- !u!4 &96097702
 Transform:
   m_ObjectHideFlags: 0
@@ -842,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1b01c5747772245819f69991d868ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicaDeFundo: {fileID: 0}
+  musicaDeFundo: {fileID: 8300000, guid: 8f216444b545c5c49a73944cac2e7799, type: 3}
   volumeMusicaFundo: 0.3
   tocarAoIniciar: 1
   persistirEntreCenas: 1
@@ -3551,6 +3553,9 @@ MonoBehaviour:
   tempoInconsciente: 10
   musicaPerseguicao: {fileID: 8300000, guid: f97f5b39ebea4ba4cb12a4521959a130, type: 3}
   volumeMusica: 0.5
+  musicaCaptura: {fileID: 8300000, guid: a5d6956ecf1f9b34384fe0c81461e4a2, type: 3}
+  volumeMusicaCaptura: 0.7
+  tempoParaCapturar: 3
   animator: {fileID: 932885499}
   usarNavMesh: 1
 --- !u!1 &994156272
@@ -14221,7 +14226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1618ec4d9e782ed4888de14b0d879240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeDaProximaFase: 1
+  nomeDaProximaFase: fase E
   tempoAntesDeCarregar: 0.2
   mostrarMensagemVitoria: 1
   somTrofeu: {fileID: 8300000, guid: 0b042089b6ada38439a62fde6bcae83a, type: 3}
@@ -15368,6 +15373,9 @@ MonoBehaviour:
   tempoInconsciente: 10
   musicaPerseguicao: {fileID: 8300000, guid: f97f5b39ebea4ba4cb12a4521959a130, type: 3}
   volumeMusica: 0.5
+  musicaCaptura: {fileID: 8300000, guid: a5d6956ecf1f9b34384fe0c81461e4a2, type: 3}
+  volumeMusicaCaptura: 0.7
+  tempoParaCapturar: 3
   animator: {fileID: 1552947571}
   usarNavMesh: 1
 --- !u!50 &1552947569
@@ -18239,6 +18247,9 @@ MonoBehaviour:
   tempoInconsciente: 10
   musicaPerseguicao: {fileID: 8300000, guid: f97f5b39ebea4ba4cb12a4521959a130, type: 3}
   volumeMusica: 0.5
+  musicaCaptura: {fileID: 8300000, guid: a5d6956ecf1f9b34384fe0c81461e4a2, type: 3}
+  volumeMusicaCaptura: 0.7
+  tempoParaCapturar: 3
   animator: {fileID: 1767263506}
   usarNavMesh: 1
 --- !u!50 &1767263504
@@ -18505,7 +18516,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4731112069190269948, guid: fe4b4950b951d384997cecc08d12b4ec, type: 3}
+  m_Sprite: {fileID: -7625544418716753610, guid: 27ad19f870549e54d8b9e12835ae9597, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
