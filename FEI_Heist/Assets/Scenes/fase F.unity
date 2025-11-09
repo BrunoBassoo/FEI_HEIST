@@ -384,7 +384,7 @@ MonoBehaviour:
   messagePanel: {fileID: 780098863}
   messageText: {fileID: 1455901452}
   barraProgresso: {fileID: 0}
-  mensagem: Vou te pegar, moleque!!
+  mensagem: Capturando em...
   corTexto: {r: 1, g: 0, b: 0, a: 1}
   mostrarTimer: 1
 --- !u!4 &96097702
