@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private bool patrulhaAutomatica = true;
     
     [Header("Configurações de Perseguição")]
-    [SerializeField] private float visionRange = 5f; // Range de visão/captura do player
+    [SerializeField] private float visionRange = 8f; // Range de visão/captura do player (aumentado)
     [SerializeField] private float multiplicadorVelocidade = 3f;
     
     [Header("Configurações de Combate")]
@@ -28,7 +28,7 @@ public class EnemyAI : MonoBehaviour
     private AudioSource audioSourceCaptura;
     
     [Header("Timer de Captura (Game Over)")]
-    [SerializeField] private float tempoParaCapturar = 3f; // 3 segundos até game over
+    [SerializeField] private float tempoParaCapturar = 2f; // 2 segundos até game over
     private float tempoSegurandoPlayer = 0f;
     private bool playerCapturado = false;
     
@@ -276,26 +276,30 @@ public class EnemyAI : MonoBehaviour
         Debug.Log("Inimigo colidiu com: " + collision.gameObject.name + " | Tag: " + collision.gameObject.tag + " | Perseguindo: " + estaPerseguindo);
         
         // Verifica se bateu na parede durante a patrulha
-        if (collision.gameObject.CompareTag("Paredes") && !estaPerseguindo)
+        // SÓ VIRA se NÃO estiver perseguindo E colidiu com algo que NÃO é o player
+        if (!estaPerseguindo && !collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Direção ANTES: indoDireita = " + indoDireita);
-            
-            // Inverte a direção
-            indoDireita = !indoDireita;
-            
-            Debug.Log("Direção DEPOIS: indoDireita = " + indoDireita);
-            
-            Flip();
-            Debug.Log("Inimigo bateu na parede e virou!");
+            // Verifica se realmente bateu em algo sólido (não trigger)
+            if (!collision.collider.isTrigger)
+            {
+                Debug.Log("🧱 BATEU NA PAREDE! Virando...");
+                Debug.Log("   Direção ANTES: " + (indoDireita ? "Direita" : "Esquerda"));
+                
+                // Inverte a direção
+                indoDireita = !indoDireita;
+                
+                Debug.Log("   Direção DEPOIS: " + (indoDireita ? "Direita" : "Esquerda"));
+                
+                // Faz o flip visual
+                Flip();
+            }
         }
         
         // Verifica se tocou no player
         if (collision.gameObject.CompareTag("Player"))
         {
             estaTocandoPlayer = true;
-            Debug.Log("Tempo restante para capturar: " + tempoParaCapturar + " segundos!!");
-            // Música de perseguição CONTINUA tocando!
-            // Timer vai começar a contar no Update()
+            Debug.Log("⏱️ Tempo restante para capturar: " + tempoParaCapturar + " segundos!!");
         }
     }
     
@@ -376,10 +380,17 @@ public class EnemyAI : MonoBehaviour
         // Espera um pouco para a música tocar
         yield return new WaitForSeconds(2f);
         
-        // Pausa o jogo
-        Time.timeScale = 0f;
+        Debug.Log("💀 Indo para tela de Game Over...");
         
-        Debug.Log("Jogo pausado. Pressione 'R' para reiniciar (você precisa adicionar essa funcionalidade)");
+        // Para todas as músicas antes de trocar de cena
+        PararMusicaCaptura();
+        PararMusicaPerseguicao();
+        
+        // Garante que o time scale está normal antes de trocar de cena
+        Time.timeScale = 1f;
+        
+        // Carrega a tela de Game Over
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
     }
     
     public void ReceberDano(int dano)
