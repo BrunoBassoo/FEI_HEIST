@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
     
     [Header("Configurações de Perseguição")]
     [SerializeField] private float visionRange = 8f; // Range de visão do player
+    [SerializeField] private float anguloVisao = 90f; // Ângulo de visão em graus (90 = cone de 90° na frente)
     [SerializeField] private float captureRange = 50f; // Range quando está capturando (maior que vision)
     [SerializeField] private float multiplicadorVelocidade = 3f;
     
@@ -26,6 +27,7 @@ public class EnemyAI : MonoBehaviour
     [Header("Música de Captura (quando pega o player)")]
     [SerializeField] private AudioClip musicaCaptura;
     [SerializeField] private float volumeMusicaCaptura = 0.7f;
+    [SerializeField] private float tempoEsperaAposCaptura = 1.5f; // Tempo antes de resetar a fase
     private AudioSource audioSourceCaptura;
     
     [Header("Sistema de Captura (QTE)")]
@@ -155,9 +157,6 @@ public class EnemyAI : MonoBehaviour
         // Procura pelo player
         ProcurarPlayer();
         
-        // Verifica se ainda está no range (para esconder mensagem se escapar)
-        VerificarRangePlayer();
-        
         // Atualiza animações
         AtualizarAnimacoes();
     }
@@ -196,14 +195,33 @@ public class EnemyAI : MonoBehaviour
         {
             if (obj.CompareTag("Player"))
             {
+                // Calcula a direção do player em relação ao inimigo
+                Vector2 direcaoParaPlayer = (obj.transform.position - transform.position).normalized;
+                
+                // Calcula a direção que o inimigo está olhando
+                Vector2 direcaoInimigo = indoDireita ? Vector2.right : Vector2.left;
+                
+                // Calcula o ângulo entre a direção do inimigo e a direção do player
+                float angulo = Vector2.Angle(direcaoInimigo, direcaoParaPlayer);
+                
+                // SE ESTÁ EM QTE, ignora o ângulo (já pegou o player)
+                // SE NÃO está em QTE, verifica se o player está no cone de visão
+                bool dentroDoAngulo = emQTE || (angulo <= anguloVisao / 2f);
+                
+                if (!dentroDoAngulo)
+                {
+                    // Player está ATRÁS ou FORA do cone de visão
+                    continue; // Pula para o próximo objeto
+                }
+                
                 // Verifica se o player está visível (não escondido)
                 SpriteRenderer playerSprite = obj.GetComponent<SpriteRenderer>();
                 bool playerVisivel = playerSprite != null && playerSprite.enabled;
                 
-                // Só persegue se o player estiver visível
+                // Só persegue se o player estiver visível E no cone de visão
                 if (playerVisivel)
                 {
-                    // Player detectado e visível!
+                    // Player detectado e visível NA FRENTE!
                     bool estaVaPerseguir = !estaPerseguindo;
                     estaPerseguindo = true;
                     playerTransform = obj.transform;
@@ -219,6 +237,7 @@ public class EnemyAI : MonoBehaviour
                     if (estaVaPerseguir)
                     {
                         TocarMusicaPerseguicao();
+                        Debug.Log($"👁️ Player detectado! Ângulo: {angulo:F1}° (máx: {anguloVisao/2f}°)");
                     }
                 }
                 else
@@ -386,24 +405,11 @@ public class EnemyAI : MonoBehaviour
     
     IEnumerator GameOverComDelay()
     {
-        // Verifica se tem música de captura configurada
-        if (musicaCaptura != null)
-        {
-            // Pega a duração da música
-            float duracaoMusica = musicaCaptura.length;
-            Debug.Log($"🎵 Aguardando música de captura terminar... ({duracaoMusica:F1} segundos)");
-            
-            // Espera a música terminar completamente
-            yield return new WaitForSeconds(duracaoMusica);
-        }
-        else
-        {
-            // Se não tem música configurada, espera 2 segundos (fallback)
-            Debug.LogWarning("⚠️ Música de captura não configurada! Usando delay padrão de 2s.");
-            yield return new WaitForSeconds(2f);
-        }
+        // Espera um tempo curto (configurável) antes de resetar
+        Debug.Log($"⏳ Aguardando {tempoEsperaAposCaptura}s antes de resetar a fase...");
+        yield return new WaitForSeconds(tempoEsperaAposCaptura);
         
-        Debug.Log("💀 Música finalizada! Indo para Game Over...");
+        Debug.Log("💀 Player foi capturado! Resetando fase...");
         
         // Para todas as músicas antes de trocar de cena
         PararMusicaCaptura();
@@ -412,10 +418,10 @@ public class EnemyAI : MonoBehaviour
         // Garante que o time scale está normal antes de trocar de cena
         Time.timeScale = 1f;
         
-        // Chama o Game Manager para carregar a tela de derrota
+        // Chama o Game Manager - PERDE 1 VIDA e REINICIA FASE
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.LoadGameOver();
+            GameManager.Instance.PlayerCapturado();
         }
         else
         {
@@ -633,6 +639,11 @@ public class EnemyAI : MonoBehaviour
         return emQTE;
     }
     
+    public KeyCode GetTeclaEscape()
+    {
+        return teclaEscape;
+    }
+    
     // ======================== SISTEMA DE MÚSICA ========================
     
     void TocarMusicaPerseguicao()
@@ -730,6 +741,12 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("❌ Player travado! Não pode se mover nem atacar!");
         }
         
+        // MOSTRA A UI DO QTE
+        if (QTE_UI.Instance != null)
+        {
+            QTE_UI.Instance.MostrarUI(this);
+        }
+        
         // Para a música de perseguição
         PararMusicaPerseguicao();
         
@@ -739,6 +756,17 @@ public class EnemyAI : MonoBehaviour
     
     void ProcessarQTE()
     {
+        // INIMIGO GRUDA NO PLAYER (segue a posição)
+        if (playerTransform != null)
+        {
+            // Mantém o inimigo colado no player
+            Vector2 offsetPosicao = new Vector2(0.3f, 0); // Pequeno offset para não ficar exatamente em cima
+            transform.position = Vector2.Lerp(transform.position, (Vector2)playerTransform.position + offsetPosicao, Time.deltaTime * 10f);
+            
+            // Garante que está parado (sem velocity)
+            rb.velocity = Vector2.zero;
+        }
+        
         // Atualiza o timer
         tempoRestanteQTE -= Time.deltaTime;
         
@@ -768,6 +796,12 @@ public class EnemyAI : MonoBehaviour
         emQTE = false;
         
         Debug.Log("✅ PLAYER ESCAPOU! Conseguiu apertar todas as vezes!");
+        
+        // ESCONDE A UI
+        if (QTE_UI.Instance != null)
+        {
+            QTE_UI.Instance.EsconderUI();
+        }
         
         // LIBERA O PLAYER
         if (playerScript != null)
@@ -836,6 +870,12 @@ public class EnemyAI : MonoBehaviour
         
         Debug.Log("❌ PLAYER FALHOU! Não apertou rápido o suficiente!");
         
+        // ESCONDE A UI
+        if (QTE_UI.Instance != null)
+        {
+            QTE_UI.Instance.EsconderUI();
+        }
+        
         // Player não conseguiu escapar, é capturado
         CapturarPlayer();
     }
@@ -843,11 +883,46 @@ public class EnemyAI : MonoBehaviour
     // Visualização dos ranges no Editor
     void OnDrawGizmosSelected()
     {
-        // Vision range normal (amarelo)
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, visionRange);
+        // Direção que o inimigo está olhando
+        Vector3 direcao = indoDireita ? Vector3.right : Vector3.left;
         
-        // Capture range (vermelho) - usado quando está tocando o player
+        // CONE DE VISÃO (amarelo)
+        Gizmos.color = Color.yellow;
+        
+        // Desenha o cone de visão
+        float anguloInicial = -anguloVisao / 2f;
+        float anguloFinal = anguloVisao / 2f;
+        int segmentos = 20; // Quantas linhas para desenhar o cone
+        
+        Vector3 posicaoAnterior = transform.position;
+        
+        for (int i = 0; i <= segmentos; i++)
+        {
+            float anguloAtual = anguloInicial + (anguloFinal - anguloInicial) * i / segmentos;
+            
+            // Rotaciona a direção pelo ângulo
+            float radianos = anguloAtual * Mathf.Deg2Rad;
+            Vector3 direcaoRotacionada = new Vector3(
+                direcao.x * Mathf.Cos(radianos) - direcao.y * Mathf.Sin(radianos),
+                direcao.x * Mathf.Sin(radianos) + direcao.y * Mathf.Cos(radianos),
+                0
+            );
+            
+            Vector3 pontoNoCone = transform.position + direcaoRotacionada * visionRange;
+            
+            // Desenha linha do centro para o ponto
+            Gizmos.DrawLine(transform.position, pontoNoCone);
+            
+            // Desenha linha conectando os pontos (forma o arco)
+            if (i > 0)
+            {
+                Gizmos.DrawLine(posicaoAnterior, pontoNoCone);
+            }
+            
+            posicaoAnterior = pontoNoCone;
+        }
+        
+        // Desenha linha do range de captura (vermelho) - círculo completo quando em QTE
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, captureRange);
     }

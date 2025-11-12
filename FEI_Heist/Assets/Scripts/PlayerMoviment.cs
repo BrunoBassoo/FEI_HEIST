@@ -221,6 +221,9 @@ public class PlayerMoviment : MonoBehaviour
     
     void ProcessarAtaque()
     {
+        // Se não pode se mover, não pode atacar também
+        if (!isRunning) return;
+        
         // Verifica se apertou SPACE e se pode atacar (respeitando o delay)
         if (Input.GetKeyDown(KeyCode.Space) && Time.time >= proximoAtaque)
         {

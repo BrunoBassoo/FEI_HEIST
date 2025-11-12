@@ -1867,7 +1867,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!114 &488484972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2326,7 +2326,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!114 &749806816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4365,7 +4365,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!1 &1544147835
 GameObject:
   m_ObjectHideFlags: 0
@@ -7606,7 +7606,10 @@ MonoBehaviour:
   volumeMusica: 0.5
   musicaCaptura: {fileID: 8300000, guid: a5d6956ecf1f9b34384fe0c81461e4a2, type: 3}
   volumeMusicaCaptura: 0.7
-  tempoParaCapturar: 3
+  teclaEscape: 101
+  apertosNecessarios: 15
+  tempoLimiteEscape: 5
+  tempoAtordoamentoAposEscape: 2
   animator: {fileID: 2110871506}
   usarNavMesh: 1
 --- !u!50 &2110871504

@@ -4,10 +4,17 @@ using UnityEngine;
 public class TrofeuController : MonoBehaviour
 {
     [Header("Configuração da Próxima Fase")]
+    [Tooltip("Nome EXATO da próxima cena (ex: 'fase E', 'fase T', 'TelaVitoria')")]
     [SerializeField] private string nomeDaProximaFase = "";
     
     [Header("Configurações de Transição")]
-    [SerializeField] private float tempoAntesDeCarregar = 1f;
+    [Tooltip("Se true, espera a música terminar. Se false, usa o tempo fixo")]
+    [SerializeField] private bool esperarMusicaTerminar = true;
+    
+    [Tooltip("Tempo de espera antes de carregar (usado se não tiver música)")]
+    [SerializeField] private float tempoAntesDeCarregar = 2f;
+    
+    [Tooltip("Se true, mostra mensagem no Console")]
     [SerializeField] private bool mostrarMensagemVitoria = true;
     
     [Header("Som (Opcional)")]
@@ -19,6 +26,24 @@ public class TrofeuController : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        
+        // Se não tem AudioSource, cria um
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            Debug.Log("✅ AudioSource criado automaticamente no trofeu");
+        }
+        
+        // Verifica se tem som configurado
+        if (somTrofeu != null)
+        {
+            Debug.Log($"✅ Trofeu '{gameObject.name}' tem som configurado: {somTrofeu.name}");
+        }
+        else
+        {
+            Debug.LogWarning($"⚠️ Trofeu '{gameObject.name}' não tem som configurado!");
+        }
     }
     
     void OnTriggerEnter2D(Collider2D other)
@@ -83,6 +108,11 @@ public class TrofeuController : MonoBehaviour
         if (audioSource != null && somTrofeu != null)
         {
             audioSource.PlayOneShot(somTrofeu);
+            Debug.Log($"🔊 Tocando som do trofeu: {somTrofeu.name} (duração: {somTrofeu.length}s)");
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ Não foi possível tocar som: AudioSource ou Som Trofeu está null");
         }
         
         // Desativa o sprite (opcional - para "coletar" visualmente)
@@ -105,32 +135,47 @@ public class TrofeuController : MonoBehaviour
     
     IEnumerator CarregarProximaFase()
     {
-        Debug.Log($">>> Aguardando {tempoAntesDeCarregar} segundos antes de carregar...");
-        
-        // Espera um tempo antes de carregar
-        yield return new WaitForSeconds(tempoAntesDeCarregar);
-        
-        // Verifica se o nome da fase foi configurado
-        if (string.IsNullOrEmpty(nomeDaProximaFase))
+        // Decide se espera a música ou usa tempo fixo
+        if (esperarMusicaTerminar && somTrofeu != null)
         {
-            Debug.LogError("❌ ERRO: Nome da próxima fase não foi configurado no Inspector do Trofeu!");
-            Debug.LogError(">>> Configure o campo 'Nome Da Proxima Fase' no Inspector!");
-            yield break;
+            // Espera a música do trofeu terminar
+            float duracaoMusica = somTrofeu.length;
+            Debug.Log($"🎵 Aguardando música do trofeu terminar... ({duracaoMusica:F1}s)");
+            yield return new WaitForSeconds(duracaoMusica);
+        }
+        else
+        {
+            // Usa tempo fixo configurado
+            if (tempoAntesDeCarregar > 0)
+            {
+                Debug.Log($"⏳ Aguardando {tempoAntesDeCarregar}s antes de carregar próxima fase...");
+                yield return new WaitForSeconds(tempoAntesDeCarregar);
+            }
         }
         
-        Debug.Log($">>> Pronto para carregar: '{nomeDaProximaFase}'");
+        // Verifica se configurou o nome da próxima fase
+        if (string.IsNullOrEmpty(nomeDaProximaFase))
+        {
+            Debug.LogError("❌ ERRO: Campo 'Nome Da Proxima Fase' está VAZIO!");
+            Debug.LogError("📝 SOLUÇÃO: Selecione o Trofeu → Inspector → Configure o nome da próxima cena");
+            Debug.LogError("💡 Exemplos: 'fase E', 'fase T', 'TelaVitoria'");
+            yield break;
+        }
         
         // Garante que o tempo está normal
         Time.timeScale = 1f;
         
-        // Chama o Game Manager para carregar a próxima fase
+        Debug.Log($"🎮 Música finalizada! Carregando próxima fase: '{nomeDaProximaFase}'");
+        
+        // USA O GAME MANAGER para carregar a próxima fase
         if (GameManager.Instance != null)
         {
             GameManager.Instance.LoadLevel(nomeDaProximaFase);
         }
         else
         {
-            Debug.LogError("❌ GameManager não encontrado! Certifique-se de ter o GameManager na cena.");
+            Debug.LogError("❌ ERRO: GameManager não encontrado!");
+            Debug.LogError("📝 SOLUÇÃO: Crie um GameObject 'GameManager' na cena TelaInicial com o script GameManager.cs");
         }
     }
 }
