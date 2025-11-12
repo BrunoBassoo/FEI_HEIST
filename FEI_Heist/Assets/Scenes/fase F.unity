@@ -4268,7 +4268,8 @@ MonoBehaviour:
   textoProgresso: {fileID: 1688929393}
   textoTempo: {fileID: 1510328489}
   imagemQTE: {fileID: 0}
-  atualizarApenasNumeros: 1
+  mensagemAntes: 'APERTE '
+  mensagemDepois: ' PARA SAIR!'
   usarEfeitoPulsacao: 1
 --- !u!4 &940513753
 Transform:
