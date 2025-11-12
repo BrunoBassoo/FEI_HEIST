@@ -2371,6 +2371,7 @@ GameObject:
   - component: {fileID: 718047183}
   - component: {fileID: 718047182}
   - component: {fileID: 718047185}
+  - component: {fileID: 718047186}
   m_Layer: 0
   m_Name: tilemap_porta
   m_TagString: porta
@@ -2650,6 +2651,27 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.9211512, y: 1.8565273}
   m_EdgeRadius: 0
+--- !u!114 &718047186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718047180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d73d02ccee55e249b6392f597f57f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  portaAberta: 0
+  tempoParaDestruir: 0
+  destruirObjetoComTag: 1
+  tagParaDestruir: 
+  objetoParaDestruir: {fileID: 718047180}
+  delayParaDestruir: 0
+  somPortaAbrindo: {fileID: 0}
+  somPortaTrancada: {fileID: 0}
 --- !u!1 &767314962
 GameObject:
   m_ObjectHideFlags: 0
@@ -5647,6 +5669,7 @@ MonoBehaviour:
   velocidadePatrulha: 4
   patrulhaAutomatica: 1
   visionRange: 4
+  captureRange: 12
   multiplicadorVelocidade: 1.5
   vidasMaximas: 3
   tempoParalisado: 2
@@ -6091,6 +6114,7 @@ GameObject:
   - component: {fileID: 1177068420}
   - component: {fileID: 1177068419}
   - component: {fileID: 1177068422}
+  - component: {fileID: 1177068423}
   m_Layer: 0
   m_Name: tilemap_porta_2
   m_TagString: porta
@@ -6370,6 +6394,27 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.069645, y: 1.9162412}
   m_EdgeRadius: 0
+--- !u!114 &1177068423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177068417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d73d02ccee55e249b6392f597f57f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  portaAberta: 0
+  tempoParaDestruir: 0
+  destruirObjetoComTag: 1
+  tagParaDestruir: 
+  objetoParaDestruir: {fileID: 1177068417}
+  delayParaDestruir: 0
+  somPortaAbrindo: {fileID: 0}
+  somPortaTrancada: {fileID: 0}
 --- !u!1 &1213238875
 GameObject:
   m_ObjectHideFlags: 3
@@ -10409,6 +10454,7 @@ MonoBehaviour:
   velocidadePatrulha: 2
   patrulhaAutomatica: 1
   visionRange: 3
+  captureRange: 12
   multiplicadorVelocidade: 1.5
   vidasMaximas: 2
   tempoParalisado: 6
@@ -11087,6 +11133,7 @@ MonoBehaviour:
   velocidadePatrulha: 2
   patrulhaAutomatica: 1
   visionRange: 3
+  captureRange: 12
   multiplicadorVelocidade: 1.5
   vidasMaximas: 2
   tempoParalisado: 6
@@ -11740,6 +11787,7 @@ MonoBehaviour:
   velocidadePatrulha: 2
   patrulhaAutomatica: 1
   visionRange: 3
+  captureRange: 12
   multiplicadorVelocidade: 1.5
   vidasMaximas: 2
   tempoParalisado: 6
@@ -11941,6 +11989,7 @@ MonoBehaviour:
   velocidadePatrulha: 2
   patrulhaAutomatica: 1
   visionRange: 3
+  captureRange: 12
   multiplicadorVelocidade: 1.5
   vidasMaximas: 2
   tempoParalisado: 6

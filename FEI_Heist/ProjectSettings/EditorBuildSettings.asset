@@ -38,5 +38,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/fase T.unity
     guid: 8391f08f8cb874fdb80494e9c5326d83
+  - enabled: 1
+    path: Assets/Scenes/TelaVitoria.unity
+    guid: 69658a051344d474abd9a951900efce0
+  - enabled: 1
+    path: Assets/Scenes/TelaDerrota.unity
+    guid: 74ece2324753a63438e40bd6246dbbdc
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

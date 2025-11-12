@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class TrofeuController : MonoBehaviour
 {
@@ -119,25 +118,19 @@ public class TrofeuController : MonoBehaviour
             yield break;
         }
         
-        Debug.Log($">>> Tentando carregar a fase: '{nomeDaProximaFase}'");
+        Debug.Log($">>> Pronto para carregar: '{nomeDaProximaFase}'");
         
         // Garante que o tempo está normal
         Time.timeScale = 1f;
         
-        // Tenta carregar a cena
-        try
+        // Chama o Game Manager para carregar a próxima fase
+        if (GameManager.Instance != null)
         {
-            Debug.Log($"🎮 Carregando cena: {nomeDaProximaFase}");
-            SceneManager.LoadScene(nomeDaProximaFase);
+            GameManager.Instance.LoadLevel(nomeDaProximaFase);
         }
-        catch (System.Exception e)
+        else
         {
-            Debug.LogError($"❌ ERRO ao carregar a fase '{nomeDaProximaFase}'!");
-            Debug.LogError($"Mensagem de erro: {e.Message}");
-            Debug.LogError(">>> Verifique:");
-            Debug.LogError("1. O nome da fase está EXATAMENTE igual ao nome da Scene?");
-            Debug.LogError("2. A Scene foi adicionada no Build Settings?");
-            Debug.LogError("   (File → Build Settings → Add Open Scenes)");
+            Debug.LogError("❌ GameManager não encontrado! Certifique-se de ter o GameManager na cena.");
         }
     }
 }

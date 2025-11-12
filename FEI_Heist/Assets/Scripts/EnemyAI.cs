@@ -10,7 +10,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private bool patrulhaAutomatica = true;
     
     [Header("Configurações de Perseguição")]
-    [SerializeField] private float visionRange = 8f; // Range de visão/captura do player (aumentado)
+    [SerializeField] private float visionRange = 8f; // Range de visão do player
+    [SerializeField] private float captureRange = 50f; // Range quando está capturando (maior que vision)
     [SerializeField] private float multiplicadorVelocidade = 3f;
     
     [Header("Configurações de Combate")]
@@ -27,9 +28,16 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float volumeMusicaCaptura = 0.7f;
     private AudioSource audioSourceCaptura;
     
-    [Header("Timer de Captura (Game Over)")]
-    [SerializeField] private float tempoParaCapturar = 2f; // 2 segundos até game over
-    private float tempoSegurandoPlayer = 0f;
+    [Header("Sistema de Captura (QTE)")]
+    [SerializeField] private KeyCode teclaEscape = KeyCode.E;
+    [SerializeField] private int apertosNecessarios = 15;
+    [SerializeField] private float tempoLimiteEscape = 5f; // Tempo para apertar E as vezes necessárias
+    [SerializeField] private float tempoAtordoamentoAposEscape = 2f; // Tempo que inimigo fica atordoado se player escapar
+    
+    // Estado do QTE
+    private bool emQTE = false;
+    private int apertosAtuais = 0;
+    private float tempoRestanteQTE = 0f;
     private bool playerCapturado = false;
     
     [Header("Componentes")]
@@ -44,7 +52,7 @@ public class EnemyAI : MonoBehaviour
     private bool estaInconsciente = false;
     private bool estaPerseguindo = false;
     private Transform playerTransform;
-    private bool estaTocandoPlayer = false;
+    private PlayerMoviment playerScript;
     
     // Patrulha
     private bool indoDireita = true;
@@ -89,7 +97,7 @@ public class EnemyAI : MonoBehaviour
         // Cria um segundo AudioSource para música de captura
         audioSourceCaptura = gameObject.AddComponent<AudioSource>();
         audioSourceCaptura.clip = musicaCaptura;
-        audioSourceCaptura.loop = true; // Música fica em loop enquanto segura o player
+        audioSourceCaptura.loop = false; // Música toca UMA VEZ e termina (Game Over depois)
         audioSourceCaptura.playOnAwake = false;
         audioSourceCaptura.volume = volumeMusicaCaptura;
         
@@ -137,14 +145,18 @@ public class EnemyAI : MonoBehaviour
         // Se já capturou o player, não faz mais nada
         if (playerCapturado) return;
         
+        // Se está em QTE, processa o minigame
+        if (emQTE)
+        {
+            ProcessarQTE();
+            return;
+        }
+        
         // Procura pelo player
         ProcurarPlayer();
         
         // Verifica se ainda está no range (para esconder mensagem se escapar)
         VerificarRangePlayer();
-        
-        // Atualiza o timer de captura se estiver segurando o player
-        AtualizarTimerCaptura();
         
         // Atualiza animações
         AtualizarAnimacoes();
@@ -171,8 +183,12 @@ public class EnemyAI : MonoBehaviour
     
     void ProcurarPlayer()
     {
-        // Detecta todos os objetos no vision range
-        Collider2D[] objetosDetectados = Physics2D.OverlapCircleAll(transform.position, visionRange);
+        // Se está em QTE com o player, usa o range de captura (maior)
+        // Caso contrário, usa o vision range normal
+        float rangeAtual = emQTE ? captureRange : visionRange;
+        
+        // Detecta todos os objetos no range atual
+        Collider2D[] objetosDetectados = Physics2D.OverlapCircleAll(transform.position, rangeAtual);
         
         // Procura pelo player através da tag
         bool playerEncontrado = false;
@@ -192,6 +208,12 @@ public class EnemyAI : MonoBehaviour
                     estaPerseguindo = true;
                     playerTransform = obj.transform;
                     playerEncontrado = true;
+                    
+                    // Pega o script do player se não tiver ainda
+                    if (playerScript == null)
+                    {
+                        playerScript = obj.GetComponent<PlayerMoviment>();
+                    }
                     
                     // Se acabou de começar a perseguir, toca a música
                     if (estaVaPerseguir)
@@ -298,51 +320,21 @@ public class EnemyAI : MonoBehaviour
         // Verifica se tocou no player
         if (collision.gameObject.CompareTag("Player"))
         {
-            estaTocandoPlayer = true;
-            Debug.Log("⏱️ Tempo restante para capturar: " + tempoParaCapturar + " segundos!!");
+            // INICIA O QTE IMEDIATAMENTE quando encostar
+            if (!emQTE && !playerCapturado)
+            {
+                IniciarQTE();
+            }
         }
     }
     
     void OnCollisionExit2D(Collision2D collision)
     {
-        // Se player saiu da colisão
-        if (collision.gameObject.CompareTag("Player"))
+        // Se player saiu da colisão durante o QTE, cancela (player pode ter sido empurrado)
+        if (collision.gameObject.CompareTag("Player") && emQTE)
         {
-            estaTocandoPlayer = false;
-            tempoSegurandoPlayer = 0f; // Reseta o timer
-            Debug.Log("Player escapou da colisão! Timer resetado.");
-        }
-    }
-    
-    void VerificarRangePlayer()
-    {
-        // Se estava tocando o player mas perdeu ele de vista (saiu do range)
-        if (estaTocandoPlayer && !estaPerseguindo)
-        {
-            estaTocandoPlayer = false;
-            tempoSegurandoPlayer = 0f; // Reseta o timer
-            Debug.Log("Player escapou do range! Timer resetado.");
-        }
-    }
-    
-    void AtualizarTimerCaptura()
-    {
-        // Se está tocando o player, conta o tempo
-        if (estaTocandoPlayer && !playerCapturado)
-        {
-            tempoSegurandoPlayer += Time.deltaTime;
-            
-            // Debug para ver o progresso
-            if (tempoSegurandoPlayer % 1f < Time.deltaTime) // A cada segundo aproximadamente
-            {
-                Debug.Log($"⏱️ Segurando player: {tempoSegurandoPlayer:F1}s / {tempoParaCapturar}s");
-            }
-            
-            // Verifica se o tempo acabou
-            if (tempoSegurandoPlayer >= tempoParaCapturar)
-            {
-                CapturarPlayer();
-            }
+            Debug.Log("Player saiu da colisão durante QTE!");
+            // Não cancela o QTE, apenas registra
         }
     }
     
@@ -354,6 +346,23 @@ public class EnemyAI : MonoBehaviour
 
         // Para o movimento do inimigo
         rb.velocity = Vector2.zero;
+        
+        // PARA O MOVIMENTO DO PLAYER
+        if (playerScript != null)
+        {
+            playerScript.PararMovimento();
+            Debug.Log("❌ Movimento do player desabilitado - capturado!");
+        }
+        
+        // Para o Rigidbody do player também
+        if (playerTransform != null)
+        {
+            Rigidbody2D playerRb = playerTransform.GetComponent<Rigidbody2D>();
+            if (playerRb != null)
+            {
+                playerRb.velocity = Vector2.zero;
+            }
+        }
         
         // Aqui você pode adicionar:
         // - Tela de Game Over
@@ -377,10 +386,24 @@ public class EnemyAI : MonoBehaviour
     
     IEnumerator GameOverComDelay()
     {
-        // Espera um pouco para a música tocar
-        yield return new WaitForSeconds(2f);
+        // Verifica se tem música de captura configurada
+        if (musicaCaptura != null)
+        {
+            // Pega a duração da música
+            float duracaoMusica = musicaCaptura.length;
+            Debug.Log($"🎵 Aguardando música de captura terminar... ({duracaoMusica:F1} segundos)");
+            
+            // Espera a música terminar completamente
+            yield return new WaitForSeconds(duracaoMusica);
+        }
+        else
+        {
+            // Se não tem música configurada, espera 2 segundos (fallback)
+            Debug.LogWarning("⚠️ Música de captura não configurada! Usando delay padrão de 2s.");
+            yield return new WaitForSeconds(2f);
+        }
         
-        Debug.Log("💀 Indo para tela de Game Over...");
+        Debug.Log("💀 Música finalizada! Indo para Game Over...");
         
         // Para todas as músicas antes de trocar de cena
         PararMusicaCaptura();
@@ -389,8 +412,15 @@ public class EnemyAI : MonoBehaviour
         // Garante que o time scale está normal antes de trocar de cena
         Time.timeScale = 1f;
         
-        // Carrega a tela de Game Over
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+        // Chama o Game Manager para carregar a tela de derrota
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.LoadGameOver();
+        }
+        else
+        {
+            Debug.LogError("❌ GameManager não encontrado! Certifique-se de ter o GameManager na cena.");
+        }
     }
     
     public void ReceberDano(int dano)
@@ -402,12 +432,19 @@ public class EnemyAI : MonoBehaviour
         
         Debug.Log($"💥 Inimigo recebeu {dano} de dano! Vidas: {vidasAtuais}/{vidasMaximas}");
         
-        // Se estava tocando o player, para de tocar (foi atingido)
-        if (estaTocandoPlayer)
+        // Se estava no QTE, cancela (player conseguiu atacar!)
+        if (emQTE)
         {
-            estaTocandoPlayer = false;
-            tempoSegurandoPlayer = 0f; // Reseta o timer de captura
-            Debug.Log("Inimigo foi atingido! Player escapou!");
+            emQTE = false;
+            apertosAtuais = 0;
+            
+            // Libera o player
+            if (playerScript != null)
+            {
+                playerScript.LiberarMovimento();
+            }
+            
+            Debug.Log("Inimigo foi atingido durante QTE! Player escapou!");
         }
         
         // Animação de hit (se tiver)
@@ -435,10 +472,19 @@ public class EnemyAI : MonoBehaviour
         // Para de perseguir o player
         estaPerseguindo = false;
         playerTransform = null;
-        estaTocandoPlayer = false;
         
-        // Reseta o timer de captura (player escapou!)
-        tempoSegurandoPlayer = 0f;
+        // Cancela QTE se estiver ativo
+        if (emQTE)
+        {
+            emQTE = false;
+            apertosAtuais = 0;
+            
+            // Libera o player
+            if (playerScript != null)
+            {
+                playerScript.LiberarMovimento();
+            }
+        }
         
         // Para todas as músicas
         PararMusicaPerseguicao();
@@ -541,22 +587,50 @@ public class EnemyAI : MonoBehaviour
     
     public bool EstaTocandoPlayer()
     {
-        return estaTocandoPlayer;
+        // Retorna true se está em QTE (compatibilidade com UI antiga)
+        return emQTE;
     }
     
     public float GetTempoSegurandoPlayer()
     {
-        return tempoSegurandoPlayer;
+        // Retorna o tempo restante do QTE (para compatibilidade com UI antiga)
+        return tempoRestanteQTE;
     }
     
     public float GetTempoParaCapturar()
     {
-        return tempoParaCapturar;
+        return tempoLimiteEscape;
     }
     
     public float GetProgressoCaptura()
     {
-        return tempoSegurandoPlayer / tempoParaCapturar;
+        // Retorna o progresso do QTE (quantos % já apertou)
+        if (emQTE)
+        {
+            return (float)apertosAtuais / apertosNecessarios;
+        }
+        return 0f;
+    }
+    
+    // Novos getters para o sistema de QTE
+    public int GetApertosAtuais()
+    {
+        return apertosAtuais;
+    }
+    
+    public int GetApertosNecessarios()
+    {
+        return apertosNecessarios;
+    }
+    
+    public float GetTempoRestanteQTE()
+    {
+        return tempoRestanteQTE;
+    }
+    
+    public bool EstaEmQTE()
+    {
+        return emQTE;
     }
     
     // ======================== SISTEMA DE MÚSICA ========================
@@ -635,12 +709,147 @@ public class EnemyAI : MonoBehaviour
         }
     }
     
-    // Visualização do vision range no Editor
+    // ==================== SISTEMA DE QTE (INTEGRADO) ====================
+    
+    void IniciarQTE()
+    {
+        emQTE = true;
+        apertosAtuais = 0;
+        tempoRestanteQTE = tempoLimiteEscape;
+        
+        Debug.Log($"🎮 QTE INICIADO! Aperte [{teclaEscape}] {apertosNecessarios} vezes em {tempoLimiteEscape} segundos!");
+        
+        // PARA O INIMIGO (fica "colado" no player)
+        rb.velocity = Vector2.zero;
+        estaPerseguindo = false; // Para de perseguir durante QTE
+        
+        // PARA O PLAYER
+        if (playerScript != null)
+        {
+            playerScript.PararMovimento();
+            Debug.Log("❌ Player travado! Não pode se mover nem atacar!");
+        }
+        
+        // Para a música de perseguição
+        PararMusicaPerseguicao();
+        
+        // Toca música de captura
+        TocarMusicaCaptura();
+    }
+    
+    void ProcessarQTE()
+    {
+        // Atualiza o timer
+        tempoRestanteQTE -= Time.deltaTime;
+        
+        // Verifica se apertou a tecla
+        if (Input.GetKeyDown(teclaEscape))
+        {
+            apertosAtuais++;
+            Debug.Log($"⌨️ Apertou! {apertosAtuais}/{apertosNecessarios} | Tempo: {tempoRestanteQTE:F1}s");
+            
+            // Verifica se completou
+            if (apertosAtuais >= apertosNecessarios)
+            {
+                PlayerEscapouDoQTE();
+                return;
+            }
+        }
+        
+        // Verifica se o tempo acabou
+        if (tempoRestanteQTE <= 0)
+        {
+            PlayerFalhouNoQTE();
+        }
+    }
+    
+    void PlayerEscapouDoQTE()
+    {
+        emQTE = false;
+        
+        Debug.Log("✅ PLAYER ESCAPOU! Conseguiu apertar todas as vezes!");
+        
+        // LIBERA O PLAYER
+        if (playerScript != null)
+        {
+            playerScript.LiberarMovimento();
+            Debug.Log("✅ Player liberado! Pode se mover novamente!");
+        }
+        
+        // Para a música de captura
+        PararMusicaCaptura();
+        
+        // EMPURRA O INIMIGO PARA TRÁS (knockback)
+        if (playerTransform != null)
+        {
+            Vector2 direcao = (transform.position - playerTransform.position).normalized;
+            rb.velocity = direcao * velocidadePatrulha * 3f; // Empurra para trás com força
+        }
+        
+        // ATORDOA O INIMIGO
+        StartCoroutine(AtordoarInimigo());
+    }
+    
+    IEnumerator AtordoarInimigo()
+    {
+        estaInconsciente = true; // Usa o sistema de inconsciente já existente
+        
+        Debug.Log($"😵 Inimigo ATORDOADO por {tempoAtordoamentoAposEscape} segundos!");
+        
+        // Muda a cor para indicar atordoamento
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = new Color(0.7f, 0.7f, 1f, 0.8f); // Azulado
+        }
+        
+        // Para completamente
+        rb.velocity = Vector2.zero;
+        
+        // Espera o tempo de atordoamento
+        yield return new WaitForSeconds(tempoAtordoamentoAposEscape);
+        
+        // Recupera
+        estaInconsciente = false;
+        
+        Debug.Log("💪 Inimigo recuperou do atordoamento!");
+        
+        // Restaura a cor
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.white;
+        }
+        
+        // Volta a perseguir se o player ainda estiver no range
+        if (playerTransform != null)
+        {
+            float distancia = Vector2.Distance(transform.position, playerTransform.position);
+            if (distancia <= visionRange)
+            {
+                estaPerseguindo = true;
+            }
+        }
+    }
+    
+    void PlayerFalhouNoQTE()
+    {
+        emQTE = false;
+        
+        Debug.Log("❌ PLAYER FALHOU! Não apertou rápido o suficiente!");
+        
+        // Player não conseguiu escapar, é capturado
+        CapturarPlayer();
+    }
+    
+    // Visualização dos ranges no Editor
     void OnDrawGizmosSelected()
     {
-        // Vision range (amarelo)
+        // Vision range normal (amarelo)
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, visionRange);
+        
+        // Capture range (vermelho) - usado quando está tocando o player
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, captureRange);
     }
 }
 

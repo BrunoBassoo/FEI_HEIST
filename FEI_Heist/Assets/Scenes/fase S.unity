@@ -424,6 +424,7 @@ MonoBehaviour:
   velocidadePatrulha: 1
   patrulhaAutomatica: 1
   visionRange: 3
+  captureRange: 12
   multiplicadorVelocidade: 2
   vidasMaximas: 2
   tempoParalisado: 10
@@ -1636,6 +1637,7 @@ MonoBehaviour:
   velocidadePatrulha: 1
   patrulhaAutomatica: 1
   visionRange: 3
+  captureRange: 12
   multiplicadorVelocidade: 2
   vidasMaximas: 2
   tempoParalisado: 10
@@ -22197,6 +22199,7 @@ MonoBehaviour:
   velocidadePatrulha: 1
   patrulhaAutomatica: 1
   visionRange: 3
+  captureRange: 12
   multiplicadorVelocidade: 2
   vidasMaximas: 2
   tempoParalisado: 10
@@ -22531,6 +22534,7 @@ MonoBehaviour:
   velocidadePatrulha: 1
   patrulhaAutomatica: 1
   visionRange: 3
+  captureRange: 12
   multiplicadorVelocidade: 2
   vidasMaximas: 2
   tempoParalisado: 10
@@ -23244,6 +23248,7 @@ GameObject:
   - component: {fileID: 575619145}
   - component: {fileID: 575619144}
   - component: {fileID: 575619143}
+  - component: {fileID: 575619146}
   m_Layer: 0
   m_Name: porta1
   m_TagString: porta
@@ -23358,6 +23363,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &575619146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575619142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d73d02ccee55e249b6392f597f57f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  portaAberta: 0
+  tempoParaDestruir: 0
+  destruirObjetoComTag: 1
+  tagParaDestruir: 
+  objetoParaDestruir: {fileID: 180328523}
+  delayParaDestruir: 0
+  somPortaAbrindo: {fileID: 0}
+  somPortaTrancada: {fileID: 0}
 --- !u!1 &583209042
 GameObject:
   m_ObjectHideFlags: 0
@@ -24597,6 +24623,7 @@ MonoBehaviour:
   velocidadePatrulha: 1
   patrulhaAutomatica: 1
   visionRange: 3
+  captureRange: 12
   multiplicadorVelocidade: 2
   vidasMaximas: 2
   tempoParalisado: 10
@@ -24773,6 +24800,7 @@ GameObject:
   - component: {fileID: 763818199}
   - component: {fileID: 763818198}
   - component: {fileID: 763818197}
+  - component: {fileID: 763818200}
   m_Layer: 0
   m_Name: porta2
   m_TagString: porta
@@ -24887,6 +24915,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &763818200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763818196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d73d02ccee55e249b6392f597f57f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  portaAberta: 0
+  tempoParaDestruir: 0
+  destruirObjetoComTag: 1
+  tagParaDestruir: 
+  objetoParaDestruir: {fileID: 949017427}
+  delayParaDestruir: 0
+  somPortaAbrindo: {fileID: 0}
+  somPortaTrancada: {fileID: 0}
 --- !u!1 &831412696
 GameObject:
   m_ObjectHideFlags: 0
@@ -27786,6 +27835,7 @@ MonoBehaviour:
   velocidadePatrulha: 1
   patrulhaAutomatica: 1
   visionRange: 3
+  captureRange: 12
   multiplicadorVelocidade: 2
   vidasMaximas: 2
   tempoParalisado: 10
@@ -33530,6 +33580,7 @@ MonoBehaviour:
   velocidadePatrulha: 4
   patrulhaAutomatica: 1
   visionRange: 4
+  captureRange: 12
   multiplicadorVelocidade: 1.5
   vidasMaximas: 3
   tempoParalisado: 2
@@ -34212,6 +34263,7 @@ MonoBehaviour:
   velocidadePatrulha: 4
   patrulhaAutomatica: 1
   visionRange: 4
+  captureRange: 12
   multiplicadorVelocidade: 1.5
   vidasMaximas: 3
   tempoParalisado: 2

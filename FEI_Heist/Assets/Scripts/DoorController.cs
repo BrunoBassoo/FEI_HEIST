@@ -10,6 +10,12 @@ public class DoorController : MonoBehaviour
     [SerializeField] private bool portaAberta = false;
     [SerializeField] private float tempoParaDestruir = 0f; // 0 = não destrói
     
+    [Header("Destruir Objeto ao Abrir")]
+    [SerializeField] private bool destruirObjetoComTag = false;
+    [SerializeField] private string tagParaDestruir = "porta_visual"; // Tag do objeto a destruir
+    [SerializeField] private GameObject objetoParaDestruir; // OU arraste o objeto diretamente aqui
+    [SerializeField] private float delayParaDestruir = 0f; // Delay antes de destruir (para animação)
+    
     [Header("Som (Opcional)")]
     [SerializeField] private AudioClip somPortaAbrindo;
     [SerializeField] private AudioClip somPortaTrancada;
@@ -71,12 +77,72 @@ public class DoorController : MonoBehaviour
         // Desativa os colliders sólidos (permite passagem)
         DesativarCollidersSolidos();
         
+        // Destrói objeto com tag específica (se configurado)
+        if (destruirObjetoComTag)
+        {
+            DestruirObjetoEspecifico();
+        }
+        
         // Destrói a porta depois de um tempo (se configurado)
         if (tempoParaDestruir > 0)
         {
             Destroy(gameObject, tempoParaDestruir);
             Debug.Log("Porta será destruída em " + tempoParaDestruir + " segundos");
         }
+    }
+    
+    void DestruirObjetoEspecifico()
+    {
+        // Se tem um objeto referenciado diretamente, usa ele
+        if (objetoParaDestruir != null)
+        {
+            Debug.Log($"🗑️ Destruindo objeto '{objetoParaDestruir.name}' referenciado diretamente");
+            Destroy(objetoParaDestruir, delayParaDestruir);
+            return;
+        }
+        
+        // Caso contrário, procura pela tag
+        if (!string.IsNullOrEmpty(tagParaDestruir))
+        {
+            GameObject[] objetosComTag = GameObject.FindGameObjectsWithTag(tagParaDestruir);
+            
+            if (objetosComTag.Length > 0)
+            {
+                // Procura o objeto mais próximo desta porta
+                GameObject objetoMaisProximo = EncontrarObjetoMaisProximo(objetosComTag);
+                
+                if (objetoMaisProximo != null)
+                {
+                    Debug.Log($"🗑️ Destruindo objeto '{objetoMaisProximo.name}' com tag '{tagParaDestruir}'");
+                    Destroy(objetoMaisProximo, delayParaDestruir);
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"⚠️ Nenhum objeto encontrado com tag '{tagParaDestruir}'!");
+            }
+        }
+    }
+    
+    GameObject EncontrarObjetoMaisProximo(GameObject[] objetos)
+    {
+        if (objetos.Length == 0) return null;
+        
+        GameObject maisProximo = objetos[0];
+        float menorDistancia = Vector3.Distance(transform.position, maisProximo.transform.position);
+        
+        // Procura o objeto mais próximo
+        foreach (GameObject obj in objetos)
+        {
+            float distancia = Vector3.Distance(transform.position, obj.transform.position);
+            if (distancia < menorDistancia)
+            {
+                menorDistancia = distancia;
+                maisProximo = obj;
+            }
+        }
+        
+        return maisProximo;
     }
     
     // Método chamado quando player tenta abrir sem chave
