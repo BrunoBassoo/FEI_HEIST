@@ -111,6 +111,13 @@ public class PlayerMoviment : MonoBehaviour
     {
         Debug.Log(">>> TRIGGER DETECTADO: " + other.gameObject.name + " | Tag: " + other.tag);
         
+        // Se o player não pode se mover, ignora TODOS os triggers
+        if (!isRunning)
+        {
+            Debug.Log(">>> Player imobilizado, ignorando trigger!");
+            return;
+        }
+        
         // Detecta se pegou uma chave
         if (other.CompareTag("key"))
         {
@@ -384,10 +391,17 @@ public class PlayerMoviment : MonoBehaviour
         // Pega o script DoorController da porta
         DoorController doorController = portaObj.GetComponent<DoorController>();
         
-        // Verifica se a porta já foi aberta
+        // VERIFICA SE A PORTA JÁ ESTÁ ABERTA (usando DoorController)
+        if (doorController != null && doorController.EstaAberta())
+        {
+            Debug.Log("Esta porta já está aberta! (verificado pelo DoorController)");
+            return;
+        }
+        
+        // Fallback: verifica pela tag se não tem DoorController
         if (portaObj.CompareTag("porta_aberta"))
         {
-            Debug.Log("Esta porta já está aberta!");
+            Debug.Log("Esta porta já está aberta! (verificado pela tag)");
             return;
         }
         
@@ -396,7 +410,7 @@ public class PlayerMoviment : MonoBehaviour
         // Verifica se tem pelo menos 1 chave
         if (chaves > 0)
         {
-            // Usa uma chave
+            // Usa uma chave (só depois de confirmar que a porta está fechada!)
             chaves--;
             Debug.Log("Porta aberta! Chaves restantes: " + chaves);
             
