@@ -4356,8 +4356,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1736125721}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+        m_MethodName: StartGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4597,6 +4597,7 @@ MonoBehaviour:
   cenaInicial: TelaInicial
   cenaGameOver: TelaDerrota
   cenaVitoria: TelaVitoria
+  vidasIniciais: 3
 --- !u!4 &1736125722
 Transform:
   m_ObjectHideFlags: 0
@@ -7598,6 +7599,7 @@ MonoBehaviour:
   velocidadePatrulha: 1
   patrulhaAutomatica: 1
   visionRange: 3
+  anguloVisao: 90
   captureRange: 12
   multiplicadorVelocidade: 2
   vidasMaximas: 2
@@ -7606,6 +7608,7 @@ MonoBehaviour:
   volumeMusica: 0.5
   musicaCaptura: {fileID: 8300000, guid: a5d6956ecf1f9b34384fe0c81461e4a2, type: 3}
   volumeMusicaCaptura: 0.7
+  tempoEsperaAposCaptura: 1.5
   teclaEscape: 101
   apertosNecessarios: 15
   tempoLimiteEscape: 5

@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     // Variável para guardar as vidas do player
     private int vidasAtuais = 3;
     
+    // Flag para impedir múltiplos cliques durante transições
+    private bool estaCarregando = false;
+    
     void Awake()
     {
         // Implementa o padrão Singleton
@@ -65,7 +68,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void LoadMainMenu()
     {
+        if (estaCarregando) return; // Bloqueia se já estiver carregando
+        
         Debug.Log("🏠 Voltando ao menu inicial");
+        estaCarregando = true;
         Time.timeScale = 1f;
         SceneManager.LoadScene(cenaInicial);
     }
@@ -75,7 +81,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void LoadHistory()
     {
+        if (estaCarregando) return; // Bloqueia se já estiver carregando
+        
         Debug.Log("📖 Carregando tela de história");
+        estaCarregando = true;
         Time.timeScale = 1f;
         SceneManager.LoadScene("TelaHistoria");
     }
@@ -85,7 +94,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void LoadInstructions()
     {
+        if (estaCarregando) return; // Bloqueia se já estiver carregando
+        
         Debug.Log("📋 Carregando tela de instruções");
+        estaCarregando = true;
         Time.timeScale = 1f;
         SceneManager.LoadScene("TelaInstrucoes");
     }
@@ -95,6 +107,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
+        if (estaCarregando) return; // Bloqueia se já estiver carregando
+        
         Debug.Log("🎮 Iniciando o jogo - Primeira fase");
         
         // RESETA AS VIDAS ao começar novo jogo
@@ -103,6 +117,7 @@ public class GameManager : MonoBehaviour
         
         faseAtual = "fase F"; // Salva como fase atual
         Time.timeScale = 1f;
+        estaCarregando = true;
         
         // Inicia o jogo com música
         StartCoroutine(CarregarCenaComMusica("fase F"));
@@ -115,9 +130,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void LoadLevel(string nomeCena)
     {
+        if (estaCarregando) return; // Bloqueia se já estiver carregando
+        
         Debug.Log($"🎮 Carregando cena: {nomeCena}");
         faseAtual = nomeCena;
         Time.timeScale = 1f;
+        estaCarregando = true;
         
         // Garante que a música volta ao carregar nova fase
         StartCoroutine(CarregarCenaComMusica(nomeCena));
@@ -137,6 +155,9 @@ public class GameManager : MonoBehaviour
             MusicManager.Instance.TocarMusicaDeFundo();
             Debug.Log("🎵 Música de fundo iniciada na nova fase!");
         }
+        
+        // Libera para novas transições
+        estaCarregando = false;
     }
     
     /// <summary>
@@ -144,8 +165,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void RestartCurrentLevel()
     {
+        if (estaCarregando) return; // Bloqueia se já estiver carregando
+        
         Debug.Log($"🔄 Reiniciando fase: {faseAtual}");
         Time.timeScale = 1f; // Garante que o jogo não está pausado
+        estaCarregando = true;
         
         // Reinicia com música
         StartCoroutine(ReiniciarFaseComMusica());
@@ -157,11 +181,14 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void PlayerCapturado()
     {
+        if (estaCarregando) return; // Bloqueia se já estiver carregando
+        
         vidasAtuais--;
         
         Debug.Log($"💔 Player capturado! Perdeu 1 vida. Vidas restantes: {vidasAtuais}/{vidasIniciais}");
         
         Time.timeScale = 1f;
+        estaCarregando = true;
         
         // Se ainda tem vidas, reinicia a fase
         if (vidasAtuais > 0)
@@ -193,6 +220,9 @@ public class GameManager : MonoBehaviour
             MusicManager.Instance.TocarMusicaDeFundo();
             Debug.Log("🎵 Música de fundo retomada após reiniciar fase!");
         }
+        
+        // Libera para novas transições
+        estaCarregando = false;
     }
     
     /// <summary>
@@ -200,7 +230,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void LoadGameOver()
     {
+        if (estaCarregando) return; // Bloqueia se já estiver carregando
+        
         Debug.Log($"💀 Game Over direto! (sem usar sistema de vidas)");
+        estaCarregando = true;
         Time.timeScale = 1f;
         SceneManager.LoadScene(cenaGameOver);
     }
@@ -211,6 +244,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void RetryLevel()
     {
+        if (estaCarregando) return; // Bloqueia se já estiver carregando
+        
         Debug.Log($"🔄 Tentando novamente: {faseAtual}");
         
         // RESETA AS VIDAS ao tentar novamente
@@ -218,6 +253,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"❤️ Vidas resetadas: {vidasAtuais}/{vidasIniciais}");
         
         Time.timeScale = 1f;
+        estaCarregando = true;
         
         if (!string.IsNullOrEmpty(faseAtual))
         {
@@ -236,7 +272,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void LoadVictory()
     {
+        if (estaCarregando) return; // Bloqueia se já estiver carregando
+        
         Debug.Log($"🏆 Vitória! Fase completada: {faseAtual}");
+        estaCarregando = true;
         Time.timeScale = 1f;
         SceneManager.LoadScene(cenaVitoria);
     }
