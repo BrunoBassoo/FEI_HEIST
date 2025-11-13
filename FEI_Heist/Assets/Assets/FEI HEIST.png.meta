@@ -1,0 +1,515 @@
+fileFormatVersion: 2
+guid: b87140ebf9480b04daa723fdcad8c2bc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4743147587080069504
+    second: FEI HEIST_0
+  - first:
+      213: -3845851788545374218
+    second: FEI HEIST_1
+  - first:
+      213: -810303827346121554
+    second: FEI HEIST_2
+  - first:
+      213: 7581502976106559414
+    second: FEI HEIST_3
+  - first:
+      213: 270170304626909194
+    second: FEI HEIST_4
+  - first:
+      213: -2836683283584040645
+    second: FEI HEIST_5
+  - first:
+      213: 5669508268436986306
+    second: FEI HEIST_6
+  - first:
+      213: -7795247048427465400
+    second: FEI HEIST_7
+  - first:
+      213: -3404748216602475890
+    second: FEI HEIST_8
+  - first:
+      213: -1588372112303145763
+    second: FEI HEIST_9
+  - first:
+      213: -5726039366752767413
+    second: FEI HEIST_10
+  - first:
+      213: 2990483411729900159
+    second: FEI HEIST_11
+  - first:
+      213: -2069500286628473228
+    second: FEI HEIST_12
+  - first:
+      213: 8275260648419106620
+    second: FEI HEIST_13
+  - first:
+      213: 7666933613438654885
+    second: FEI HEIST_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FEI HEIST_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 242
+        width: 1023
+        height: 782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08e57da5664fc2eb0800000000000000
+      internalID: -4743147587080069504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_1
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 859
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f7c3fcac2ac0aac0800000000000000
+      internalID: -3845851788545374218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_2
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 856
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eac15e256f831c4f0800000000000000
+      internalID: -810303827346121554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_3
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 856
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b7f56ac9c8e63960800000000000000
+      internalID: 7581502976106559414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_4
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 850
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a00652ce576dfb300800000000000000
+      internalID: 270170304626909194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_5
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 849
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b314fad359312a8d0800000000000000
+      internalID: -2836683283584040645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_6
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 842
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c993575bb32eae40800000000000000
+      internalID: 5669508268436986306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_7
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 2
+        width: 160
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84591164c18b1d390800000000000000
+      internalID: -7795247048427465400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_8
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 87
+        width: 106
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e82c3cf3987efb0d0800000000000000
+      internalID: -3404748216602475890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_9
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 0
+        width: 148
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddcb80bbaf7f4f9e0800000000000000
+      internalID: -1588372112303145763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_10
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 13
+        width: 144
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b427cc6a8850980b0800000000000000
+      internalID: -5726039366752767413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_11
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 8
+        width: 113
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f72ebd691d4508920800000000000000
+      internalID: 2990483411729900159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_12
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 87
+        width: 50
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 476d0f83478a743e0800000000000000
+      internalID: -2069500286628473228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_13
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 0
+        width: 124
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3f1acc27b1a7d270800000000000000
+      internalID: 8275260648419106620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEI HEIST_14
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 32
+        width: 163
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a95381108b666a60800000000000000
+      internalID: 7666933613438654885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      FEI HEIST_0: -4743147587080069504
+      FEI HEIST_1: -3845851788545374218
+      FEI HEIST_10: -5726039366752767413
+      FEI HEIST_11: 2990483411729900159
+      FEI HEIST_12: -2069500286628473228
+      FEI HEIST_13: 8275260648419106620
+      FEI HEIST_14: 7666933613438654885
+      FEI HEIST_2: -810303827346121554
+      FEI HEIST_3: 7581502976106559414
+      FEI HEIST_4: 270170304626909194
+      FEI HEIST_5: -2836683283584040645
+      FEI HEIST_6: 5669508268436986306
+      FEI HEIST_7: -7795247048427465400
+      FEI HEIST_8: -3404748216602475890
+      FEI HEIST_9: -1588372112303145763
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
