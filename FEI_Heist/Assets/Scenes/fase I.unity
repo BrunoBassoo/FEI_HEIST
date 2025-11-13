@@ -6743,15 +6743,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e02ac9b8340e15488d8aebf6a228c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  painelVidas: {fileID: 0}
-  textoVidas: {fileID: 0}
-  iconVida: {fileID: 0}
-  painelChaves: {fileID: 2031214215}
-  textoChaves: {fileID: 0}
-  iconChave: {fileID: 0}
-  painelMaterias: {fileID: 0}
-  textoMaterias: {fileID: 0}
-  iconMateria: {fileID: 0}
+  painelVidas: {fileID: 480904889}
+  textoVidas: {fileID: 723186785}
+  iconVida: {fileID: 2136721100}
+  painelChaves: {fileID: 947777503}
+  textoChaves: {fileID: 1710604122}
+  iconChave: {fileID: 431032247}
+  painelMaterias: {fileID: 1472580728}
+  textoMaterias: {fileID: 1208189654}
+  iconMateria: {fileID: 616101191}
   atualizarAutomaticamente: 1
   formatoTextoVidas: x {0}
   formatoTextoChaves: x {0}

@@ -170,7 +170,19 @@ public class TrofeuController : MonoBehaviour
         // USA O GAME MANAGER para carregar a próxima fase
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.LoadLevel(nomeDaProximaFase);
+            // Verifica se é a tela de vitória (última fase)
+            if (nomeDaProximaFase.Contains("Vitoria") || nomeDaProximaFase.Contains("vitoria"))
+            {
+                Debug.Log("🏆 Última fase completada! Indo para tela de vitória!");
+                GameManager.Instance.CompletarJogo();
+            }
+            else
+            {
+                // Fase intermediária - mantém as vidas
+                int vidasAtuais = GameManager.Instance.GetVidas();
+                Debug.Log($"✅ Fase completada! Vidas mantidas: {vidasAtuais}");
+                GameManager.Instance.CompletarFaseEProxima(nomeDaProximaFase);
+            }
         }
         else
         {

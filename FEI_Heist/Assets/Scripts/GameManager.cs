@@ -22,19 +22,22 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            
+            // Inicializa as vidas no Awake (antes de qualquer Start)
+            vidasAtuais = vidasIniciais;
         }
         else
         {
+            // Se já existe uma instância, destrói este GameObject
             Destroy(gameObject);
+            return;
         }
     }
     
     void Start()
     {
         faseAtual = SceneManager.GetActiveScene().name;
-        vidasAtuais = vidasIniciais;
-        
-        Debug.Log($"🎮 GameManager iniciado | Fase: {faseAtual} | Vidas: {vidasAtuais}/{vidasIniciais}");
+        // NÃO reseta vidas no Start - só no Awake e nos métodos específicos
     }
     
     void OnEnable()
@@ -54,7 +57,6 @@ public class GameManager : MonoBehaviour
         if (!scene.name.Contains("Tela") && !scene.name.Contains("Menu"))
         {
             faseAtual = scene.name;
-            Debug.Log($"📍 Fase atual atualizada: {faseAtual}");
         }
     }
     
@@ -62,6 +64,9 @@ public class GameManager : MonoBehaviour
     
     public void LoadMainMenu()
     {
+        // RESETA vidas ao voltar para o menu principal
+        vidasAtuais = vidasIniciais;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(cenaInicial);
     }
     
@@ -79,6 +84,7 @@ public class GameManager : MonoBehaviour
     
     public void StartGame()
     {
+        // FORÇA reset de vidas quando inicia do menu
         vidasAtuais = vidasIniciais;
         faseAtual = "fase F";
         Time.timeScale = 1f;
@@ -92,6 +98,19 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(nomeCena);
     }
     
+    public void CompletarFaseEProxima(string proximaFase)
+    {
+        faseAtual = proximaFase;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(proximaFase);
+    }
+    
+    public void CompletarJogo()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(cenaVitoria);
+    }
+    
     public void CarregarCena(string nomeDaCena)
     {
         SceneManager.LoadScene(nomeDaCena);
@@ -101,31 +120,31 @@ public class GameManager : MonoBehaviour
     
     public void PlayerCapturado()
     {
-        vidasAtuais--;
-        Time.timeScale = 1f;
+        // VALIDAÇÃO: Não permite vidas ficarem negativas
+        if (vidasAtuais <= 0)
+        {
+            return;
+        }
         
-        Debug.Log($"💔 PLAYER CAPTURADO! Vidas: {vidasAtuais}/{vidasIniciais}");
+        Time.timeScale = 1f;
+        vidasAtuais--;
         
         if (vidasAtuais > 0)
         {
             // Ainda tem vidas, reinicia a MESMA fase
-            Debug.Log($"♻️ Reiniciando fase '{faseAtual}' | Vidas restantes: {vidasAtuais}");
-            
             if (!string.IsNullOrEmpty(faseAtual))
             {
                 SceneManager.LoadScene(faseAtual);
             }
             else
             {
-                // Fallback: recarrega a cena atual se faseAtual não estiver definida
-                Debug.LogWarning("⚠️ faseAtual vazia! Recarregando cena atual...");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
         else
         {
             // Sem vidas, Game Over
-            Debug.Log($"☠️ GAME OVER! Sem vidas restantes. Indo para tela de derrota...");
+            vidasAtuais = 0; // Garante que fica em 0 (não negativo)
             SceneManager.LoadScene(cenaGameOver);
         }
     }
@@ -146,6 +165,8 @@ public class GameManager : MonoBehaviour
     
     public void RestartCurrentLevel()
     {
+        // RESETA VIDAS quando reinicia a fase
+        vidasAtuais = vidasIniciais;
         Time.timeScale = 1f;
         SceneManager.LoadScene(faseAtual);
     }
@@ -161,8 +182,17 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(cenaInicial);
+            faseAtual = "fase F";
+            SceneManager.LoadScene("fase F");
         }
+    }
+    
+    public void JogarNovamente()
+    {
+        vidasAtuais = vidasIniciais;
+        faseAtual = "fase F";
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(faseAtual);
     }
     
     public void ResetarVidas()
@@ -170,7 +200,7 @@ public class GameManager : MonoBehaviour
         vidasAtuais = vidasIniciais;
     }
     
-    // ========== GETTERS ==========
+    // ========== GETTERS E SETTERS ==========
     
     public int GetVidas()
     {
@@ -185,6 +215,20 @@ public class GameManager : MonoBehaviour
     public string GetCurrentLevel()
     {
         return faseAtual;
+    }
+    
+    public void SetVidas(int vidas)
+    {
+        vidasAtuais = Mathf.Max(0, vidas);
+    }
+    
+    public void AdicionarVidas(int quantidade)
+    {
+        if (quantidade > 0)
+        {
+            vidasAtuais += quantidade;
+            vidasAtuais = Mathf.Min(vidasAtuais, vidasIniciais);
+        }
     }
     
     // ========== OUTROS ==========

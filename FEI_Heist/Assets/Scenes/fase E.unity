@@ -5489,15 +5489,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e02ac9b8340e15488d8aebf6a228c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  painelVidas: {fileID: 0}
-  textoVidas: {fileID: 0}
-  iconVida: {fileID: 0}
-  painelChaves: {fileID: 1315480424}
-  textoChaves: {fileID: 0}
-  iconChave: {fileID: 0}
-  painelMaterias: {fileID: 0}
-  textoMaterias: {fileID: 0}
-  iconMateria: {fileID: 0}
+  painelVidas: {fileID: 1336910687}
+  textoVidas: {fileID: 187040087}
+  iconVida: {fileID: 492005397}
+  painelChaves: {fileID: 2123711933}
+  textoChaves: {fileID: 1276294253}
+  iconChave: {fileID: 1996826647}
+  painelMaterias: {fileID: 163163801}
+  textoMaterias: {fileID: 1627308971}
+  iconMateria: {fileID: 683238305}
   atualizarAutomaticamente: 1
   formatoTextoVidas: x {0}
   formatoTextoChaves: x {0}

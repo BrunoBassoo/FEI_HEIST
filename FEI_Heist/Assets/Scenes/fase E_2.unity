@@ -148,15 +148,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e02ac9b8340e15488d8aebf6a228c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  painelVidas: {fileID: 0}
-  textoVidas: {fileID: 0}
-  iconVida: {fileID: 0}
-  painelChaves: {fileID: 981122096}
-  textoChaves: {fileID: 0}
-  iconChave: {fileID: 0}
-  painelMaterias: {fileID: 0}
-  textoMaterias: {fileID: 0}
-  iconMateria: {fileID: 0}
+  painelVidas: {fileID: 1334375841}
+  textoVidas: {fileID: 599601365}
+  iconVida: {fileID: 1392752913}
+  painelChaves: {fileID: 1962279520}
+  textoChaves: {fileID: 1887605405}
+  iconChave: {fileID: 989011954}
+  painelMaterias: {fileID: 1969834880}
+  textoMaterias: {fileID: 2085721082}
+  iconMateria: {fileID: 1633663249}
   atualizarAutomaticamente: 1
   formatoTextoVidas: x {0}
   formatoTextoChaves: x {0}

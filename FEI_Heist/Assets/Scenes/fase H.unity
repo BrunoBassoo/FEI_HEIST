@@ -17448,15 +17448,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e02ac9b8340e15488d8aebf6a228c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  painelVidas: {fileID: 0}
-  textoVidas: {fileID: 0}
-  iconVida: {fileID: 0}
-  painelChaves: {fileID: 1713757067}
-  textoChaves: {fileID: 0}
-  iconChave: {fileID: 0}
-  painelMaterias: {fileID: 0}
-  textoMaterias: {fileID: 0}
-  iconMateria: {fileID: 0}
+  painelVidas: {fileID: 1022269158}
+  textoVidas: {fileID: 2051217315}
+  iconVida: {fileID: 2096370527}
+  painelChaves: {fileID: 31572653}
+  textoChaves: {fileID: 1070578408}
+  iconChave: {fileID: 1565744291}
+  painelMaterias: {fileID: 1449834756}
+  textoMaterias: {fileID: 149015056}
+  iconMateria: {fileID: 253360247}
   atualizarAutomaticamente: 1
   formatoTextoVidas: x {0}
   formatoTextoChaves: x {0}
