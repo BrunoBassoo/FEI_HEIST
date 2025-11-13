@@ -680,8 +680,8 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: FEI_Heist
-  metroPackageVersion: 
+  metroPackageName: FEIHeist
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -689,7 +689,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: FEI_Heist
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: FEI_Heist
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
