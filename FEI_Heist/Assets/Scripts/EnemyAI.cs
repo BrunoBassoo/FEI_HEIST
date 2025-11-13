@@ -23,12 +23,14 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private AudioClip musicaPerseguicao;
     [SerializeField] private float volumeMusica = 0.5f;
     private AudioSource audioSource;
+    private bool musicaPerseguicaoTocando = false; // Flag para evitar duplicação
     
     [Header("Música de Captura (quando pega o player)")]
     [SerializeField] private AudioClip musicaCaptura;
     [SerializeField] private float volumeMusicaCaptura = 0.7f;
     [SerializeField] private float tempoEsperaAposCaptura = 1.5f; // Tempo antes de resetar a fase
     private AudioSource audioSourceCaptura;
+    private bool musicaCapturaTocando = false; // Flag para evitar duplicação
     
     [Header("Sistema de Captura (QTE)")]
     [SerializeField] private KeyCode teclaEscape = KeyCode.E;
@@ -58,6 +60,55 @@ public class EnemyAI : MonoBehaviour
     
     // Patrulha
     private bool indoDireita = true;
+
+    void OnDestroy()
+    {
+        // Garante que as músicas sejam desregistradas quando o inimigo for destruído
+        LimparMusicas();
+    }
+    
+    void OnDisable()
+    {
+        // Garante que as músicas sejam desregistradas quando o inimigo for desabilitado
+        LimparMusicas();
+    }
+    
+    void LimparMusicas()
+    {
+        // Para e desregistra a música de perseguição se estiver tocando
+        if (musicaPerseguicaoTocando)
+        {
+            if (audioSource != null && audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+            
+            if (MusicManager.Instance != null)
+            {
+                MusicManager.Instance.DesregistrarMusicaAtiva();
+            }
+            
+            musicaPerseguicaoTocando = false;
+            Debug.Log("🧹 Música de perseguição limpa (OnDestroy/OnDisable)");
+        }
+        
+        // Para e desregistra a música de captura se estiver tocando
+        if (musicaCapturaTocando)
+        {
+            if (audioSourceCaptura != null && audioSourceCaptura.isPlaying)
+            {
+                audioSourceCaptura.Stop();
+            }
+            
+            if (MusicManager.Instance != null)
+            {
+                MusicManager.Instance.DesregistrarMusicaAtiva();
+            }
+            
+            musicaCapturaTocando = false;
+            Debug.Log("🧹 Música de captura limpa (OnDestroy/OnDisable)");
+        }
+    }
 
     void Start()
     {
@@ -339,9 +390,30 @@ public class EnemyAI : MonoBehaviour
         // Verifica se tocou no player
         if (collision.gameObject.CompareTag("Player"))
         {
-            // INICIA O QTE IMEDIATAMENTE quando encostar
+            // NOVA LÓGICA: Só pode capturar se estiver PERSEGUINDO e de FRENTE para o player
             if (!emQTE && !playerCapturado)
             {
+                // Verifica se está perseguindo o player
+                if (!estaPerseguindo)
+                {
+                    Debug.Log("⚠️ Inimigo tocou no player mas NÃO está perseguindo! Captura CANCELADA.");
+                    return;
+                }
+                
+                // Verifica se está de FRENTE para o player
+                Vector2 direcaoParaPlayer = (collision.transform.position - transform.position).normalized;
+                Vector2 direcaoInimigo = indoDireita ? Vector2.right : Vector2.left;
+                float angulo = Vector2.Angle(direcaoInimigo, direcaoParaPlayer);
+                
+                // Só captura se o player estiver no cone de visão (de frente)
+                if (angulo > anguloVisao / 2f)
+                {
+                    Debug.Log($"⚠️ Inimigo tocou no player mas está de COSTAS! Ângulo: {angulo:F1}° (máx: {anguloVisao/2f}°) - Captura CANCELADA.");
+                    return;
+                }
+                
+                // Se passou nas verificações, pode capturar!
+                Debug.Log($"✅ Condições atendidas! Perseguindo: {estaPerseguindo} | Ângulo: {angulo:F1}° - INICIANDO CAPTURA!");
                 IniciarQTE();
             }
         }
@@ -405,11 +477,11 @@ public class EnemyAI : MonoBehaviour
     
     IEnumerator GameOverComDelay()
     {
-        // Espera um tempo curto (configurável) antes de resetar
-        Debug.Log($"⏳ Aguardando {tempoEsperaAposCaptura}s antes de resetar a fase...");
+        // Espera um tempo curto (configurável) antes de processar captura
+        Debug.Log($"⏳ Aguardando {tempoEsperaAposCaptura}s antes de processar captura...");
         yield return new WaitForSeconds(tempoEsperaAposCaptura);
         
-        Debug.Log("💀 Player foi capturado! Resetando fase...");
+        Debug.Log("💔 Player foi capturado! Processando...");
         
         // Para todas as músicas antes de trocar de cena
         PararMusicaCaptura();
@@ -418,14 +490,20 @@ public class EnemyAI : MonoBehaviour
         // Garante que o time scale está normal antes de trocar de cena
         Time.timeScale = 1f;
         
-        // Chama o Game Manager - PERDE 1 VIDA e REINICIA FASE
+        // Chama o Game Manager - PERDE 1 VIDA e REINICIA A MESMA FASE
         if (GameManager.Instance != null)
         {
+            int vidasAntes = GameManager.Instance.GetVidas();
+            Debug.Log($"📊 Vidas antes da captura: {vidasAntes}");
+            
             GameManager.Instance.PlayerCapturado();
+            
+            Debug.Log($"✅ GameManager.PlayerCapturado() chamado! O player vai perder 1 vida e a fase será reiniciada.");
         }
         else
         {
             Debug.LogError("❌ GameManager não encontrado! Certifique-se de ter o GameManager na cena.");
+            Debug.LogError("❌ Sem GameManager, não é possível processar a captura corretamente!");
         }
     }
     
@@ -649,7 +727,7 @@ public class EnemyAI : MonoBehaviour
     void TocarMusicaPerseguicao()
     {
         // Só toca se tiver música configurada e um AudioSource
-        if (audioSource != null && musicaPerseguicao != null)
+        if (audioSource != null && musicaPerseguicao != null && !musicaPerseguicaoTocando)
         {
             // Se já não estiver tocando
             if (!audioSource.isPlaying)
@@ -661,6 +739,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 
                 audioSource.Play();
+                musicaPerseguicaoTocando = true;
                 Debug.Log("🎵 Música de perseguição iniciada!");
             }
         }
@@ -668,25 +747,30 @@ public class EnemyAI : MonoBehaviour
     
     void PararMusicaPerseguicao()
     {
-        // Para a música se estiver tocando
-        if (audioSource != null && audioSource.isPlaying)
+        // Só para se realmente estiver tocando (baseado na flag)
+        if (musicaPerseguicaoTocando)
         {
-            audioSource.Stop();
+            // Para a música se estiver tocando
+            if (audioSource != null && audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
             
-            // Notifica o MusicManager que a música parou
+            // Notifica o MusicManager que a música parou (SÓ SE A FLAG ESTÁ TRUE)
             if (MusicManager.Instance != null)
             {
                 MusicManager.Instance.DesregistrarMusicaAtiva();
             }
             
+            musicaPerseguicaoTocando = false;
             Debug.Log("🎵 Música de perseguição parada!");
         }
     }
     
     void TocarMusicaCaptura()
     {
-        // Só toca se tiver música configurada
-        if (audioSourceCaptura != null && musicaCaptura != null)
+        // Só toca se tiver música configurada e ainda não estiver tocando
+        if (audioSourceCaptura != null && musicaCaptura != null && !musicaCapturaTocando)
         {
             // Se já não estiver tocando
             if (!audioSourceCaptura.isPlaying)
@@ -698,6 +782,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 
                 audioSourceCaptura.Play();
+                musicaCapturaTocando = true;
                 Debug.Log("🚨 Música de CAPTURA iniciada! Player foi pego!");
             }
         }
@@ -705,18 +790,23 @@ public class EnemyAI : MonoBehaviour
     
     void PararMusicaCaptura()
     {
-        // Para a música se estiver tocando
-        if (audioSourceCaptura != null && audioSourceCaptura.isPlaying)
+        // Só para se realmente estiver tocando (baseado na flag)
+        if (musicaCapturaTocando)
         {
-            audioSourceCaptura.Stop();
+            // Para a música se estiver tocando
+            if (audioSourceCaptura != null && audioSourceCaptura.isPlaying)
+            {
+                audioSourceCaptura.Stop();
+            }
             
-            // Notifica o MusicManager que a música parou
+            // Notifica o MusicManager que a música parou (SÓ SE A FLAG ESTÁ TRUE)
             if (MusicManager.Instance != null)
             {
                 MusicManager.Instance.DesregistrarMusicaAtiva();
             }
             
-            Debug.Log("🚨 Música de captura parada! Player escapou!");
+            musicaCapturaTocando = false;
+            Debug.Log("🚨 Música de captura parada!");
         }
     }
     

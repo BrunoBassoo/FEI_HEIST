@@ -131,7 +131,6 @@ public class MusicManager : MonoBehaviour
         if (contagemMusicasAtivas == 1)
         {
             PausarMusicaDeFundo();
-            Debug.Log($"🎵 Música externa iniciada. Música de fundo pausada. ({contagemMusicasAtivas} ativa)");
         }
     }
     
@@ -141,10 +140,11 @@ public class MusicManager : MonoBehaviour
     public void DesregistrarMusicaAtiva()
     {
         contagemMusicasAtivas--;
-        
+
         // Garante que não fica negativo
         if (contagemMusicasAtivas < 0)
         {
+            Debug.LogWarning($"⚠️ ATENÇÃO! Contagem de músicas ficou negativa! Resetando para 0.");
             contagemMusicasAtivas = 0;
         }
         
@@ -152,7 +152,11 @@ public class MusicManager : MonoBehaviour
         if (contagemMusicasAtivas == 0)
         {
             ContinuarMusicaDeFundo();
-            Debug.Log($"🎵 Música externa parada. Música de fundo voltou. ({contagemMusicasAtivas} ativas)");
+            Debug.Log($"▶️ Música de fundo voltou (contagem = 0)");
+        }
+        else
+        {
+            Debug.Log($"⏸️ Música de fundo continua pausada (contagem = {contagemMusicasAtivas})");
         }
     }
     
@@ -193,6 +197,24 @@ public class MusicManager : MonoBehaviour
         }
         
         Debug.Log("🎵 Música de fundo trocada!");
+    }
+    
+    // ======================== MÉTODOS DE EMERGÊNCIA ========================
+    
+    /// <summary>
+    /// Força a volta da música de fundo resetando a contagem
+    /// Use apenas se a música de fundo parou de tocar por um bug
+    /// </summary>
+    public void ForcarVoltarMusicaDeFundo()
+    {
+        Debug.LogWarning("🚨 [EMERGÊNCIA] Forçando volta da música de fundo!");
+        Debug.LogWarning($"   Contagem antes: {contagemMusicasAtivas}");
+        
+        contagemMusicasAtivas = 0;
+        ContinuarMusicaDeFundo();
+        
+        Debug.LogWarning($"   Contagem resetada para: {contagemMusicasAtivas}");
+        Debug.LogWarning($"   Música tocando? {EstaTocando()}");
     }
     
     // ======================== GETTERS ========================

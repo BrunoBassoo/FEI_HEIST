@@ -33,6 +33,29 @@ public class GameManager : MonoBehaviour
     {
         faseAtual = SceneManager.GetActiveScene().name;
         vidasAtuais = vidasIniciais;
+        
+        Debug.Log($"🎮 GameManager iniciado | Fase: {faseAtual} | Vidas: {vidasAtuais}/{vidasIniciais}");
+    }
+    
+    void OnEnable()
+    {
+        // Atualiza a fase atual sempre que uma cena é carregada
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Só atualiza faseAtual se for uma fase de jogo (não menu/game over)
+        if (!scene.name.Contains("Tela") && !scene.name.Contains("Menu"))
+        {
+            faseAtual = scene.name;
+            Debug.Log($"📍 Fase atual atualizada: {faseAtual}");
+        }
     }
     
     // ========== NAVEGAÇÃO ==========
@@ -81,14 +104,28 @@ public class GameManager : MonoBehaviour
         vidasAtuais--;
         Time.timeScale = 1f;
         
+        Debug.Log($"💔 PLAYER CAPTURADO! Vidas: {vidasAtuais}/{vidasIniciais}");
+        
         if (vidasAtuais > 0)
         {
-            // Ainda tem vidas, reinicia a fase
-            SceneManager.LoadScene(faseAtual);
+            // Ainda tem vidas, reinicia a MESMA fase
+            Debug.Log($"♻️ Reiniciando fase '{faseAtual}' | Vidas restantes: {vidasAtuais}");
+            
+            if (!string.IsNullOrEmpty(faseAtual))
+            {
+                SceneManager.LoadScene(faseAtual);
+            }
+            else
+            {
+                // Fallback: recarrega a cena atual se faseAtual não estiver definida
+                Debug.LogWarning("⚠️ faseAtual vazia! Recarregando cena atual...");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
         else
         {
             // Sem vidas, Game Over
+            Debug.Log($"☠️ GAME OVER! Sem vidas restantes. Indo para tela de derrota...");
             SceneManager.LoadScene(cenaGameOver);
         }
     }
