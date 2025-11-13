@@ -2031,63 +2031,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &178119447
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 178119449}
-  - component: {fileID: 178119448}
-  m_Layer: 0
-  m_Name: ThreatMessageController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &178119448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178119447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a45340f94fa2e746839ab9764c9695c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messagePanel: {fileID: 0}
-  messageText: {fileID: 0}
-  barraProgresso: {fileID: 0}
-  mensagem: Capturando em...
-  corTexto:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
-  mostrarTimer: 1
-  inimigos: []
-  mostrandoMensagem: 0
-  inimigoSegurando: {fileID: 0}
---- !u!4 &178119449
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178119447}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 338.61127, y: 396.42538, z: -5.746342}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &180328523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2374,54 +2317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &232243716
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 232243718}
-  - component: {fileID: 232243717}
-  m_Layer: 0
-  m_Name: game
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &232243717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232243716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd85a984c61490b43995fbafa59af8b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cenaInicial: TelaInicial
-  cenaGameOver: TelaDerrota
-  cenaVitoria: TelaVitoria
-  vidasIniciais: 3
---- !u!4 &232243718
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232243716}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.8376975, y: 2.4505324, z: -0.60215735}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &254854944
 GameObject:
   m_ObjectHideFlags: 0
@@ -36384,7 +36279,6 @@ SceneRoots:
   - {fileID: 1779988577}
   - {fileID: 126144346}
   - {fileID: 1659116875}
-  - {fileID: 178119449}
   - {fileID: 517755003}
   - {fileID: 615440359}
   - {fileID: 1828656484}
@@ -36405,5 +36299,4 @@ SceneRoots:
   - {fileID: 505345124}
   - {fileID: 1163662021}
   - {fileID: 371373576}
-  - {fileID: 232243718}
   - {fileID: 472227509}

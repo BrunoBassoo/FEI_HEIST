@@ -6276,54 +6276,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &948280846
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 948280848}
-  - component: {fileID: 948280847}
-  m_Layer: 0
-  m_Name: game
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &948280847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948280846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd85a984c61490b43995fbafa59af8b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cenaInicial: TelaInicial
-  cenaGameOver: TelaDerrota
-  cenaVitoria: TelaVitoria
-  vidasIniciais: 3
---- !u!4 &948280848
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948280846}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.8376975, y: 2.4505324, z: -0.60215735}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1008082708
 GameObject:
   m_ObjectHideFlags: 0
@@ -13191,56 +13143,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849631140}
   m_CullTransparentMesh: 1
---- !u!1 &1856903341
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1856903343}
-  - component: {fileID: 1856903342}
-  m_Layer: 0
-  m_Name: ThreatMessageController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1856903342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856903341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a45340f94fa2e746839ab9764c9695c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messagePanel: {fileID: 0}
-  messageText: {fileID: 0}
-  barraProgresso: {fileID: 0}
-  mensagem: Capturando em...
-  corTexto: {r: 1, g: 0, b: 0, a: 1}
-  mostrarTimer: 1
---- !u!4 &1856903343
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856903341}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 338.61127, y: 396.42538, z: -5.746342}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1858982472
 GameObject:
   m_ObjectHideFlags: 0
@@ -31720,7 +31622,6 @@ SceneRoots:
   - {fileID: 1109016938}
   - {fileID: 682633539}
   - {fileID: 705963961}
-  - {fileID: 1856903343}
   - {fileID: 1510685242}
   - {fileID: 1758839318}
   - {fileID: 767314964}
@@ -31729,5 +31630,4 @@ SceneRoots:
   - {fileID: 389716679}
   - {fileID: 1610278027}
   - {fileID: 2058529534}
-  - {fileID: 948280848}
   - {fileID: 1552861982}
