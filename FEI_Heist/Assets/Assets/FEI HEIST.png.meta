@@ -138,6 +138,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -466,7 +492,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FEI HEIST_0: -4743147587080069504
+      FEI HEIST_1: -3845851788545374218
+      FEI HEIST_10: -5726039366752767413
+      FEI HEIST_11: 2990483411729900159
+      FEI HEIST_12: -2069500286628473228
+      FEI HEIST_13: 8275260648419106620
+      FEI HEIST_14: 7666933613438654885
+      FEI HEIST_2: -810303827346121554
+      FEI HEIST_3: 7581502976106559414
+      FEI HEIST_4: 270170304626909194
+      FEI HEIST_5: -2836683283584040645
+      FEI HEIST_6: 5669508268436986306
+      FEI HEIST_7: -7795247048427465400
+      FEI HEIST_8: -3404748216602475890
+      FEI HEIST_9: -1588372112303145763
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
