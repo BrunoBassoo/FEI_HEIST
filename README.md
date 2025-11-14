@@ -1,15 +1,17 @@
 <img width="500" height="500" alt="image" text-align: center src="https://github.com/user-attachments/assets/365d1b1c-c37e-437a-afeb-93e4eb06a942" />
 
 ### Se divirta jogando ...
+
 [Game - Fei Heist](https://bbasso.itch.io/fei-heist)
 
-Bem-vindo ao **FEI Heist**, um jogo digital inspirado no clássico *Robbery Bob*, mas com um toque universitário! Aqui, você não é um ladrão comum — é um **aluno da FEI** tentando "pegar" todas as matérias de cada semestre... sem ser pego pelos professores e guardinhas!
+Bem-vindo ao **FEI Heist**, um jogo digital inspirado no clássico _Robbery Bob_, mas com um toque universitário! Aqui, você não é um ladrão comum — é um **aluno da FEI** tentando "pegar" todas as matérias de cada semestre... sem ser pego pelos professores e guardinhas!
 
 ## 🕹️ Sobre o Jogo
 
 **FEI Heist** é um jogo stealth onde você controla um estudante da FEI em sua jornada para "concluir o curso". Cada fase representa um **semestre**, e o seu objetivo é **coletar as matérias** daquele semestre espalhadas pelo mapa — tudo isso enquanto evita **professores**, **monitores** e os temidos **guardinhas da FEI**.
 
 ### 🎯 Objetivo
+
 - Coletar todas as disciplinas obrigatórias de cada semestre.
 - Evitar os inimigos (guardinhas e professores).
 - Completar todos os semestres e se formar sem ser expulso!
@@ -23,7 +25,7 @@ Bem-vindo ao **FEI Heist**, um jogo digital inspirado no clássico *Robbery Bob*
 ## 🎮 Mecânicas Principais
 
 - **Modo Stealth**: Ande silenciosamente para não chamar atenção.
-- **Itens Especiais**: Utilize ferramentas como crachá falso, bota de rapidez e caixa de som pra confundir o guardinha. 
+- **Itens Especiais**: Utilize ferramentas como crachá falso, bota de rapidez e caixa de som pra confundir o guardinha.
 - **Inimigos com IA**: Guardinhas e professores patrulham áreas e reagem a sons e movimentos suspeitos.
 - **Mapas Inspirados na FEI**: Explore lugares como a sala de estudos, os laboratórios, a lanchonete, prédio D e mais.
 
@@ -54,45 +56,45 @@ Como o jogo se passa na universidade, o publico alvo é os alunos da FEI, na qua
 ## 📚 Modelagem das fases
 
 #### Regras:
+
 - O jogador precisa pegar os colecionáveis para passar de fase
 - Se o jogador for pego, ele volta para o início da fase em questão (sem carregar o que já tinha pego)
 - O crachá tem uma duração de 3 segundos e vira um falso segurança durante esse período
 - Cubos verdes são esconderijos
 - Bota da rapidez aumenta sua velocidade em 5 km/h
 
-### 1° fase:
+### 1° fase - FASE F:
 
-<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%201.png" />
+![Fase F](FEI_Heist/Assets/Assets/FASE%20F.png)
 
-### 2° fase:
+### 2° fase - FASE E1:
 
-<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%202.png" />
+![Fase E1](FEI_Heist/Assets/Assets/FASE%20E1.png)
 
-### 3° fase:
+### 3° fase - FASE I1:
 
-<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%203.png" />
+![Fase I1](FEI_Heist/Assets/Assets/FASE%20I1.png)
 
-### 4° fase:
+### 4° fase - FASE H:
 
-<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%204.png" />
+![Fase H](FEI_Heist/Assets/Assets/FASE%20H.png)
 
-### 5° fase:
+### 5° fase - FASE E2:
 
-<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%205.png" />
+![Fase E2](FEI_Heist/Assets/Assets/FASE%20E2.png)
 
-### 6° fase:
+### 6° fase - FASE I2:
 
-<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%206.png" />
+![Fase I2](FEI_Heist/Assets/Assets/FASE%20I2.png)
 
-### 7° fase:
+### 7° fase - FASE S:
 
-<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%207.png" />
+![Fase S](FEI_Heist/Assets/Assets/FASE%20S.png)
 
-### 8° fase:
+### 8° fase - FASE T:
 
-<img width="500" height="700" alt="image" text-align: center src="https://github.com/BrunoBassoo/FEI_HEIST/blob/main/ModelagemFases/Fase%208 (TCC).png" />
+![Fase T](FEI_Heist/Assets/Assets/FASE%20T.png)
 
 ## Link da apresentação parcial
 
 https://youtu.be/OsGaff8B7_M
-
