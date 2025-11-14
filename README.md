@@ -10,6 +10,9 @@ Bem-vindo ao **FEI Heist**, um jogo digital inspirado no clássico _Robbery Bob_
 
 **FEI Heist** é um jogo stealth onde você controla um estudante da FEI em sua jornada para "concluir o curso". Cada fase representa um **semestre**, e o seu objetivo é **coletar as matérias** daquele semestre espalhadas pelo mapa — tudo isso enquanto evita **professores**, **monitores** e os temidos **guardinhas da FEI**.
 
+### Créditos
+Assets - [[JAPAN SCHOOL] PIXEL TOP-DOWN TILESET 16x16](https://nakokohari.itch.io/japan-school-pixel-top-down-tileset-16x16)
+
 ### 🎯 Objetivo
 
 - Coletar todas as disciplinas obrigatórias de cada semestre.
